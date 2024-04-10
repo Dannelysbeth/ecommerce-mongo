@@ -1,20 +1,22 @@
 package dannelysbeth.ecommerce.mongodbshop.repository;
 
-import basement.friends.backend.model.User;
+
+import dannelysbeth.ecommerce.mongodbshop.model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends MongoRepository<User, String> {
-
-    boolean existsByEmail(String email);
-
-    boolean existsByUsername(String username);
+public interface UserRepository extends MongoRepository<User, String>, QuerydslPredicateExecutor<User> {
 
     Optional<User> getUserByUsername(String username);
 
     Optional<User> getUserByEmail(String email);
+
+    boolean existsByEmail(String email);
+
+    boolean existsByUsername(String username);
 
 }

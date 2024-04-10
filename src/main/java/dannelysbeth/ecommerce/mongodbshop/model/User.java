@@ -12,9 +12,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Set;
 
 @Document
 @Data
+@Builder
 public class User implements UserDetails {
     @Id
     private String id;
@@ -24,36 +26,22 @@ public class User implements UserDetails {
 
     private String password;
 
-    private Collection<Role> roles;
-
-    @Indexed(unique = true)
     private String email;
 
+    private String firstname;
 
-    @Builder
-    public User(String username, String password, Collection<Role> roles, String email) {
-        this.username = username;
-        this.password = password;
-        this.roles = roles;
-        this.email = email;
-    }
+    private String lastname;
+
+    private Role role;
+
+    private Set<Address> addresses;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        roles.forEach(role -> authorities.add(new SimpleGrantedAuthority(role.getName())));
+        authorities.add(new SimpleGrantedAuthority(this.role.name()));
 
         return authorities;
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public String getUsername() {
-        return username;
     }
 
     @Override
@@ -75,5 +63,4 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return false;
     }
-
 }

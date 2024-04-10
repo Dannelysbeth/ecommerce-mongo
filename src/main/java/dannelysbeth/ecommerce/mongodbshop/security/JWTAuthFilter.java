@@ -1,9 +1,9 @@
 package dannelysbeth.ecommerce.mongodbshop.security;
 
-import basement.friends.backend.api.handlers.DTO.ErrorResponse;
-import basement.friends.backend.model.User;
-import basement.friends.backend.service.definition.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dannelysbeth.ecommerce.mongodbshop.api.handlers.DTO.ErrorResponse;
+import dannelysbeth.ecommerce.mongodbshop.model.User;
+import dannelysbeth.ecommerce.mongodbshop.service.definition.UserService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,11 +23,10 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @Component
 @RequiredArgsConstructor
-public class JwtAuthFilter extends OncePerRequestFilter {
+public class JWTAuthFilter extends OncePerRequestFilter {
+    private final JWTService jwtService;
 
-    private final JwtService jwtService;
-
-    private final UserService userDetailsService;
+    private final UserService userService;
 
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain) throws ServletException, IOException {
@@ -35,36 +34,37 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
-//            addErrorMessageToResponse(response, HttpStatus.NOT_ACCEPTABLE.value(), "Authorization Header not provided!");
             return;
         }
         try {
-            final String jwt = authHeader.substring(7);       //to exclude the "Bearer " keyword
+            final String jwt = authHeader.substring(7);
+
             try {
-                final String username = jwtService.extractUsername(jwt);
+                final String username = jwtService.extractUsernameFromToken(jwt);
+
                 if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-                    User userDetails = userDetailsService.getByUsername(username);
-                    if (jwtService.isTokenValid(jwt, userDetails)) {
-                        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
-                                userDetails,
-                                null,
-                                userDetails.getAuthorities());
+                    User user = userService.getByUsername(username);
+                    if (jwtService.isTokenValid(jwt, user)) {
+                        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
                         authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                         SecurityContextHolder.getContext().setAuthentication(authToken);
                     }
                 }
                 filterChain.doFilter(request, response);
-            } catch (Exception exception) {
-                addErrorMessageToResponse(response, HttpStatus.FORBIDDEN.value(), exception.getMessage());
+            } catch (Exception ex) {
+                addErrorMessageToResponse(response, HttpStatus.FORBIDDEN.value(), ex.getMessage());
             }
-        } catch (Exception exception) {
-            addErrorMessageToResponse(response, HttpStatus.NOT_ACCEPTABLE.value(), "Authorization Header not provided!");
+        } catch (Exception ex) {
+            addErrorMessageToResponse(response, HttpStatus.NOT_ACCEPTABLE.value(), ex.getMessage());
         }
     }
+
 
     private void addErrorMessageToResponse(HttpServletResponse response, int errorCode, String errorMessage) throws IOException {
         response.setStatus(HttpStatus.FORBIDDEN.value());
         response.setContentType(APPLICATION_JSON_VALUE);
         new ObjectMapper().writeValue(response.getOutputStream(), new ErrorResponse(errorCode, errorMessage));
     }
+
+
 }

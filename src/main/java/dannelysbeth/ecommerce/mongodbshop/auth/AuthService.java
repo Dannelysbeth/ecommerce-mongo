@@ -1,61 +1,56 @@
 package dannelysbeth.ecommerce.mongodbshop.auth;
 
 
-import basement.friends.backend.exception.EmailExistsException;
-import basement.friends.backend.exception.IncorrectPasswordException;
-import basement.friends.backend.exception.UsernameAlreadyTakenException;
-import basement.friends.backend.exception.UsernameNotFoundException;
-import basement.friends.backend.model.DTO.request.BasicUserRequest;
-import basement.friends.backend.model.Gamer;
-import basement.friends.backend.model.User;
-import basement.friends.backend.repository.GamerRepository;
-import basement.friends.backend.repository.UserRepository;
-import basement.friends.backend.security.JwtService;
+import dannelysbeth.ecommerce.mongodbshop.auth.DTO.request.AuthenticationRequest;
+import dannelysbeth.ecommerce.mongodbshop.auth.DTO.request.RegisterRequest;
+import dannelysbeth.ecommerce.mongodbshop.auth.DTO.response.AuthenticationResponse;
+import dannelysbeth.ecommerce.mongodbshop.enums.Role;
+import dannelysbeth.ecommerce.mongodbshop.exception.EmailExistsException;
+import dannelysbeth.ecommerce.mongodbshop.exception.IncorrectPasswordException;
+import dannelysbeth.ecommerce.mongodbshop.exception.UserNotFoundException;
+import dannelysbeth.ecommerce.mongodbshop.exception.UsernameAlreadyTakenException;
+import dannelysbeth.ecommerce.mongodbshop.mapper.definition.UserMapper;
+import dannelysbeth.ecommerce.mongodbshop.model.DTO.request.UserRequest;
+import dannelysbeth.ecommerce.mongodbshop.model.User;
+import dannelysbeth.ecommerce.mongodbshop.repository.UserRepository;
+import dannelysbeth.ecommerce.mongodbshop.security.JWTService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicBoolean;
-
-import static basement.friends.backend.model.enums.Role.ROLE_USER;
 
 @Service
 @RequiredArgsConstructor
 public class AuthService {
     private final UserRepository userRepository;
-    private final GamerRepository gamerRepository;
     private final PasswordEncoder passwordEncoder;
-    private final JwtService jwtService;
+    private final JWTService jwtService;
+    private final UserMapper userMapper;
 
     public AuthenticationResponse register(RegisterRequest request) {
         verifyRequestCorrectness(request);
         User user = User.builder()
                 .username(request.getUsername())
                 .email(request.getEmail())
+                .firstname(request.getEmail())
+                .lastname(request.getLastname())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .roles(Set.of(ROLE_USER))
+                .role(Role.USER_ROLE)
                 .build();
+
         userRepository.save(user);
-        Gamer gamer = Gamer.builder()
-                .id(user.getId())
-                .firstName(request.getFirstName())
-                .lastName(request.getLastName())
-                .nickName(request.getNickname() == null ? request.getUsername() : request.getNickname())
-                .build();
-        gamerRepository.save(gamer);
         String jwtToken = jwtService.generateToken(user);
+
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
+
     }
 
-    public AuthenticationResponse authenticate(AuthenticationRequest request) {
-        User user = userRepository.getUserByUsername(request.getUsername())
-                .orElseGet(() -> userRepository.getUserByEmail(request.getUsername())
-                        .orElseThrow(UsernameNotFoundException::new));
+    public AuthenticationResponse login(AuthenticationRequest request) {
+        User user = userRepository.getUserByUsername(request.getUsername()).orElseGet(() -> userRepository.getUserByEmail(request.getUsername())
+                .orElseThrow(UserNotFoundException::new));
         boolean decoded = passwordEncoder.matches(request.getPassword(), user.getPassword());
         if (!decoded) {
             throw new IncorrectPasswordException();
@@ -65,45 +60,16 @@ public class AuthService {
                 .token(jwtToken)
                 .build();
     }
-    public String importUsers(Set<BasicUserRequest> requests) {
-        Set<String> errorList = new HashSet<>();
-        String msg = "";
-        AtomicBoolean isOk = new AtomicBoolean(true);
-        requests.forEach(req->{
-            if (userRepository.existsByEmail(req.getEmail())) {
-                errorList.add(STR."Account for email \{req.getEmail()} already exists");
-                isOk.set(false);
-            }
-            if (userRepository.existsByUsername(req.getUsername())) {
-                errorList.add(STR."Username \{req.getUsername()} is already taken");
-                isOk.set(false);
-            }
-            if (isOk.get()) {
-                User user = User.builder()
-                        .roles(Collections.singleton(ROLE_USER))
-                        .username(req.getUsername())
-                        .email(req.getEmail())
-                        .password(passwordEncoder.encode(req.getUsername()))
-                        .build();
-                Gamer gamer = Gamer.builder()
-                        .nickName(req.getUsername())
-                        .lastName(req.getLastname())
-                        .firstName(req.getFirstname())
-                        .build();
-                userRepository.save(user);
-                gamerRepository.save(gamer);
-                isOk.set(true);
-            }
+
+    public void importMultipleUsers(Set<UserRequest> requests) {
+        requests.forEach(req -> {
+            userRepository.save(userMapper.tranformRequestToUser(req,
+                    passwordEncoder.encode(req.getUsername()),
+                    Role.USER_ROLE));
         });
-        if (!errorList.isEmpty()) {
-            for (String err: errorList) {
-                msg = STR."\{msg} \n\{err}";
-            }
-        } else {
-            msg = "All users were imported successfully";
-        }
-        return msg;
     }
+
+
     private void verifyRequestCorrectness(RegisterRequest request) {
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new EmailExistsException();

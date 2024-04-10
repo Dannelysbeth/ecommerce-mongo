@@ -1,6 +1,6 @@
 package dannelysbeth.ecommerce.mongodbshop.security;
 
-import basement.friends.backend.model.User;
+import dannelysbeth.ecommerce.mongodbshop.model.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -20,18 +20,19 @@ import java.util.function.Function;
 
 @Service
 @RequiredArgsConstructor
-public class JwtService {
+public class JWTService {
     @Value("${security.jwt.secret}")
     private String SECRET_KEY;
+
 
     @Value("${security.jwt.expireTime}")
     private int EXPIRE_TIME;
 
-    public String extractUsername(String token) {
+    public String extractUsernameFromToken(String token) {
         return extractClaim(token, Claims::getSubject);
     }
 
-    public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
+    private <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
     }
@@ -44,18 +45,16 @@ public class JwtService {
         return Jwts.builder()
                 .setClaims(extractClaims)
                 .setSubject(user.getUsername())
-                .claim("roles", user.getRoles())
-                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .claim("role", user.getRole()).setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRE_TIME))
                 .signWith(getSignKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
 
     public boolean isTokenValid(String token, UserDetails userDetails) {
-        final String username = extractUsername(token);
-        return Objects.equals(username, userDetails.getUsername()) && !isTokenExpired(token);
+        final String username = extractUsernameFromToken(token);
+        return Objects.equals(username, userDetails.getUsername()) && !isTokenExpired((token));
     }
-
 
     private boolean isTokenExpired(String token) {
         return extractExpiration(token).before(new Date(System.currentTimeMillis()));
@@ -66,11 +65,7 @@ public class JwtService {
     }
 
     private Claims extractAllClaims(String token) {
-        return Jwts.parserBuilder()
-                .setSigningKey(getSignKey())
-                .build()
-                .parseClaimsJws(token)
-                .getBody();
+        return Jwts.parserBuilder().setSigningKey(getSignKey()).build().parseClaimsJws(token).getBody();
     }
 
     private Key getSignKey() {
