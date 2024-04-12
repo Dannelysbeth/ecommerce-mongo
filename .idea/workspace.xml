@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be2c35e3-2f67-4f4a-b6a9-f25705051fa2" name="Changes" comment="completed User functionality for mongoDB database">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Cart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/CartItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/response/ProductResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/ProductItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/ProductLine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Variation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/VariationOption.java" afterDir="false" />
+    <list default="true" id="be2c35e3-2f67-4f4a-b6a9-f25705051fa2" name="Changes" comment="working on MongoDB schema">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +23,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Dannelysbeth"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="5e780d54-09f1-4b3e-a515-224c99eded6a" />
+        <option name="url" value="https://github.com/Dannelysbeth/ecommerce-mongo.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -65,6 +73,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -86,7 +95,7 @@
       <recent name="dannelysbeth.ecommerce.mongodbshop.repository" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Docker.Dockerfile">
     <configuration name="MongodbShopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="mongodb-shop" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="dannelysbeth.ecommerce.mongodbshop.MongodbShopApplication" />
@@ -94,6 +103,51 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="buildOnly" value="true" />
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile" />
+      <method v="2" />
+    </configuration>
+    <configuration name="compose.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="compose.yaml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="compose.yaml.mongo-express: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="mongo-express" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="compose.yaml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Docker.compose.yaml: Compose Deployment" />
+        <item itemvalue="Docker.compose.yaml.mongo-express: Compose Deployment" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -104,7 +158,7 @@
       <option name="presentableId" value="Default" />
       <updated>1712393407400</updated>
       <workItem from="1712393408466" duration="7108000" />
-      <workItem from="1712772034781" duration="14251000" />
+      <workItem from="1712772034781" duration="15957000" />
     </task>
     <task id="LOCAL-00001" summary="updated application properties">
       <option name="closed" value="true" />
@@ -138,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712781670223</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="working on MongoDB schema">
+      <option name="closed" value="true" />
+      <created>1712866051727</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712866051727</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +222,7 @@
     <MESSAGE value="working on security v1" />
     <MESSAGE value="working on security v2" />
     <MESSAGE value="completed User functionality for mongoDB database" />
-    <option name="LAST_COMMIT_MESSAGE" value="completed User functionality for mongoDB database" />
+    <MESSAGE value="working on MongoDB schema" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on MongoDB schema" />
   </component>
 </project>

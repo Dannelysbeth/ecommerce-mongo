@@ -1,9 +1,59 @@
+version: "3.8"
 services:
   mongodb:
-    image: 'mongo:latest'
-    environment:
-      - 'MONGO_INITDB_DATABASE=mydatabase'
-      - 'MONGO_INITDB_ROOT_PASSWORD=secret'
-      - 'MONGO_INITDB_ROOT_USERNAME=root'
+    image: mongo:latest
+    container_name: mongodb_ecommerce
+    expose:
+      - 27017
     ports:
-      - '27017'
+      - "27017:27017"
+    volumes:
+      - data:/data
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo_express_ecommerce
+    links:
+      - mongodb
+    depends_on:
+      - mongodb
+    restart: always
+    ports:
+      - "8081:8081"
+    expose:
+      - 8081
+    volumes:
+      - data:/data
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: root
+      ME_CONFIG_MONGODB_SERVER: mongodb
+
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: web:latest
+    container_name: backend_ecommerce
+    links:
+      - mongodb
+    ports:
+      - "8080:8080"
+    expose:
+      - 8080
+    volumes:
+      - data:/data
+    restart: always
+    depends_on:
+      mongodb:
+        condition: service_started
+
+volumes:
+  data: {}
+
+networks:
+  default:
+    name: ecommerce_network
