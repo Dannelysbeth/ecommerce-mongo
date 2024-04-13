@@ -2,23 +2,20 @@ package dannelysbeth.ecommerce.mongodbshop.model;
 
 import lombok.Builder;
 import lombok.Data;
-
-import java.util.Set;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Builder
+@Document
 public class ProductItem {
 
-    private String name;
+    @Id
+    private String id;
 
-    private String description;
+    private Product product;
 
-    private double price;
+    private int quantityInStock;
 
-    private byte[] image;
-
-    private Category category;
-
-    private Set<Variation> variations;
-
+    private int SKU;
 }

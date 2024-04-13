@@ -5,17 +5,15 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
 @Data
 @Builder
-@Document
-public class ProductLine {
+public class ShippingMethod {
 
     @Id
     private String id;
 
-    private ProductItem product;
+    private String name;
 
-    private int quantityInStock;
-
-    private int SKU;
+    private double price;
 }
