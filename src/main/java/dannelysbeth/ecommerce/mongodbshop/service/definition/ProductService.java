@@ -5,5 +5,5 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 public interface ProductService {
-    List<ProductItem> importFromFile(MultipartFile file);
+    void importFromFile(MultipartFile file);
 }

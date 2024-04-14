@@ -5,6 +5,8 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Data
 @Builder
 @Document
@@ -15,7 +17,9 @@ public class ProductItem {
 
     private Product product;
 
-    private int quantityInStock;
+    private long quantityInStock;
 
-    private int SKU;
+    private long SKU;
+
+    private List<Variation> variation;
 }

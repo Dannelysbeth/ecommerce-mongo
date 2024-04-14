@@ -1,6 +1,5 @@
 package dannelysbeth.ecommerce.mongodbshop.model.DTO.response;
 
-import dannelysbeth.ecommerce.mongodbshop.model.Category;
 import dannelysbeth.ecommerce.mongodbshop.model.Variation;
 import lombok.Builder;
 import lombok.Data;
@@ -22,7 +21,7 @@ public class ProductResponse {
 
     private byte [] image;
 
-    private Category category;
+    private String category;
 
     private Set<Variation> variations;
 }

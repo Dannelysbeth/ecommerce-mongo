@@ -17,8 +17,8 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
     @Override
-    public List<ProductItem> importFromFile(MultipartFile file) {
+    public void importFromFile(MultipartFile file) {
         List<ProductItem> products = this.productMapper.readFromFile(file);
-        return this.productRepository.saveAll(products);
+        this.productRepository.saveAll(products);
     }
 }

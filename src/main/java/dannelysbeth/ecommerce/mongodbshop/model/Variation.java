@@ -6,7 +6,8 @@ import lombok.Data;
 @Data
 @Builder
 public class Variation {
-    private String name;
+
+    private String parameter;
 
     private VariationOption type;
 }

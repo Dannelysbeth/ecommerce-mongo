@@ -9,16 +9,14 @@ import java.util.Set;
 @Builder
 public class Product {
 
+    private String productCode;
+
     private String name;
 
     private String description;
 
     private double price;
 
-    private byte[] image;
-
-    private Category category;
-
-    private Set<Variation> variations;
+    private String category;
 
 }
