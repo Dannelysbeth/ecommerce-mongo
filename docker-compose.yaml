@@ -1,14 +1,16 @@
 version: "3.8"
 services:
-  mongodb:
+  mongo:
     image: mongo:latest
     container_name: mongodb_ecommerce
+    networks:
+      - ecommerce_network
     expose:
       - 27017
     ports:
       - "27017:27017"
     volumes:
-      - data:/data
+      - mongo_data:/data/db
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
@@ -16,21 +18,21 @@ services:
   mongo-express:
     image: mongo-express:latest
     container_name: mongo_express_ecommerce
+    networks:
+      - ecommerce_network
     links:
-      - mongodb
+      - mongo
     depends_on:
-      - mongodb
+      - mongo
     restart: always
     ports:
       - "8081:8081"
     expose:
       - 8081
-    volumes:
-      - data:/data
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: root
-      ME_CONFIG_MONGODB_SERVER: mongodb
+      ME_CONFIG_MONGODB_SERVER: mongo
 
   web:
     build:
@@ -38,22 +40,24 @@ services:
       dockerfile: Dockerfile
     image: web:latest
     container_name: backend_ecommerce
+    networks:
+      - ecommerce_network
     links:
-      - mongodb
+      - mongo
     ports:
       - "8080:8080"
     expose:
       - 8080
     volumes:
-      - data:/data
+      - app_data:/target/mongodb-shop.jar:/mongodb-shop.jar
     restart: always
     depends_on:
-      mongodb:
+      mongo:
         condition: service_started
-
 volumes:
-  data: {}
+  mongo_data: {}
+  app_data: {}
 
 networks:
-  default:
-    name: ecommerce_network
+  ecommerce_network:
+    driver: bridge

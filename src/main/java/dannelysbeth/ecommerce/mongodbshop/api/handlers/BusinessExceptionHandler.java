@@ -42,4 +42,10 @@ public class BusinessExceptionHandler {
     public ErrorResponse handleIncorrectPasswordException(IncorrectPasswordException exception) {
         return new ErrorResponse(exception);
     }
+
+    @ExceptionHandler(FileInputException.class)
+    @ResponseStatus(value = HttpStatus.NOT_ACCEPTABLE)
+    public ErrorResponse handleFileInputException(FileInputException exception) {
+        return new ErrorResponse(exception);
+    }
 }
