@@ -9,5 +9,5 @@ import java.util.List;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.ERROR)
 public interface ProductMapper {
-    public List<ProductItem> readFromFile(MultipartFile file);
+    List<ProductItem> readFromFile(MultipartFile file);
 }
