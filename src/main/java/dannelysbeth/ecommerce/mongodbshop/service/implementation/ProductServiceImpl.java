@@ -28,4 +28,9 @@ public class ProductServiceImpl implements ProductService {
 
         this.repository.saveAll(products);
     }
+
+    @Override
+    public void saveMany(Set<Product> products) {
+        repository.saveAll(products);
+    }
 }

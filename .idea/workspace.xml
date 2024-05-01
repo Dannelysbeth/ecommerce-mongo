@@ -10,39 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be2c35e3-2f67-4f4a-b6a9-f25705051fa2" name="Changes" comment="importing products from file">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/configuration/SpringBootConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/factory/definition/JsonProductMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/factory/implemention/JsonProductMapperImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/request/AddressRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/request/OrderRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/request/ProductRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/response/AddressResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/response/CartItemResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/response/CartResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/response/CustomResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/response/OrderResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/response/ProductItemResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Feature.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/api/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/api/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/auth/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/auth/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/enums/OrderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/enums/OrderStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/enums/PaymentType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/enums/PaymentType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/enums/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/enums/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/mapper/definition/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/mapper/definition/ProductMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/mapper/definition/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/mapper/definition/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/mapper/implementation/ProductMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/mapper/implementation/ProductMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/mapper/implementation/UserMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/mapper/implementation/UserMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/response/ProductResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/response/ProductResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/ProductItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/ProductItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Variation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Variation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/definition/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/definition/ProductService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +208,7 @@
       <workItem from="1713009343876" duration="25058000" />
       <workItem from="1713108707149" duration="8181000" />
       <workItem from="1713805133331" duration="921000" />
-      <workItem from="1714330821903" duration="22190000" />
+      <workItem from="1714330821903" duration="23525000" />
     </task>
     <task id="LOCAL-00001" summary="updated application properties">
       <option name="closed" value="true" />
@@ -318,7 +290,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713245882208</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="importing products from file">
+      <option name="closed" value="true" />
+      <created>1714557911735</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1714557911735</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
