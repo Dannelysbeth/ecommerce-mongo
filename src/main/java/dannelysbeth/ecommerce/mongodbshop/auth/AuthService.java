@@ -4,7 +4,7 @@ package dannelysbeth.ecommerce.mongodbshop.auth;
 import dannelysbeth.ecommerce.mongodbshop.auth.DTO.request.AuthenticationRequest;
 import dannelysbeth.ecommerce.mongodbshop.auth.DTO.request.RegisterRequest;
 import dannelysbeth.ecommerce.mongodbshop.auth.DTO.response.AuthenticationResponse;
-import dannelysbeth.ecommerce.mongodbshop.enums.Role;
+import dannelysbeth.ecommerce.mongodbshop.model.enums.Role;
 import dannelysbeth.ecommerce.mongodbshop.exception.EmailExistsException;
 import dannelysbeth.ecommerce.mongodbshop.exception.IncorrectPasswordException;
 import dannelysbeth.ecommerce.mongodbshop.exception.UserNotFoundException;

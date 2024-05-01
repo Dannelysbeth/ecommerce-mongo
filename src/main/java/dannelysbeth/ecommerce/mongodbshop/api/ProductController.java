@@ -1,5 +1,6 @@
 package dannelysbeth.ecommerce.mongodbshop.api;
 
+import dannelysbeth.ecommerce.mongodbshop.mapper.definition.ProductMapper;
 import dannelysbeth.ecommerce.mongodbshop.service.definition.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,10 @@ import org.springframework.web.multipart.MultipartFile;
 public class ProductController {
 
     private final ProductService productService;
+
+    private final ProductMapper productMapper;
+
+
 
     @PreAuthorize("hasAnyAuthority('ADMIN_ROLE')")
     @PostMapping("/import")

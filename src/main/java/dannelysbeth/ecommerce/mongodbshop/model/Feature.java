@@ -5,9 +5,9 @@ import lombok.Data;
 
 @Data
 @Builder
-public class Variation {
+public class Feature {
 
-    private String parameter;
+    String parameter;
 
-    private String value;
+    String value;
 }

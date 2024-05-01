@@ -1,7 +1,7 @@
 package dannelysbeth.ecommerce.mongodbshop.model;
 
-import dannelysbeth.ecommerce.mongodbshop.enums.OrderStatus;
-import dannelysbeth.ecommerce.mongodbshop.enums.PaymentType;
+import dannelysbeth.ecommerce.mongodbshop.model.enums.OrderStatus;
+import dannelysbeth.ecommerce.mongodbshop.model.enums.PaymentType;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;

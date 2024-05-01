@@ -1,6 +1,6 @@
 package dannelysbeth.ecommerce.mongodbshop.model;
 
-import dannelysbeth.ecommerce.mongodbshop.enums.Role;
+import dannelysbeth.ecommerce.mongodbshop.model.enums.Role;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;

@@ -13,7 +13,7 @@ import java.util.Set;
 public class Product {
 
     @Id
-    private String productCode;
+    private String id;
 
     private String name;
 
@@ -22,5 +22,7 @@ public class Product {
     private double price;
 
     private String category;
+
+    Set<ProductItem> items;
 
 }

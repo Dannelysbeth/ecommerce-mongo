@@ -1,4 +1,4 @@
-package dannelysbeth.ecommerce.mongodbshop.enums;
+package dannelysbeth.ecommerce.mongodbshop.model.enums;
 
 import lombok.Getter;
 

@@ -1,16 +1,15 @@
-package dannelysbeth.ecommerce.mongodbshop.model.DTO.response;
+package dannelysbeth.ecommerce.mongodbshop.model.DTO.request;
 
 import dannelysbeth.ecommerce.mongodbshop.model.ProductItem;
-import dannelysbeth.ecommerce.mongodbshop.model.Variation;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 
 import java.util.Set;
 
+
 @Data
 @Builder
-public class ProductResponse {
+public class ProductRequest {
 
     String productCode;
 
@@ -23,4 +22,9 @@ public class ProductResponse {
     double price;
 
     Set<ProductItem> productItems;
+
 }
+
+
+
+

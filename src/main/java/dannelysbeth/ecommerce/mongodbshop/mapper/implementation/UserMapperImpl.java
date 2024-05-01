@@ -1,7 +1,7 @@
 package dannelysbeth.ecommerce.mongodbshop.mapper.implementation;
 
 
-import dannelysbeth.ecommerce.mongodbshop.enums.Role;
+import dannelysbeth.ecommerce.mongodbshop.model.enums.Role;
 import dannelysbeth.ecommerce.mongodbshop.mapper.definition.UserMapper;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.request.UserRequest;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.response.UserResponse;
