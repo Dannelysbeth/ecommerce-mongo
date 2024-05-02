@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -26,11 +27,23 @@ public class ProductServiceImpl implements ProductService {
         List<ProductRequest> productRequests = this.jsonFactory.readFromFile(file);
         Set<Product> products = this.mapper.transformFromRequest(productRequests);
 
-        this.repository.saveAll(products);
+        this.saveMany(products);
     }
 
     @Override
     public void saveMany(Set<Product> products) {
-        repository.saveAll(products);
+        if (products == null || products.isEmpty()) {
+            return;
+        }
+        for(Product product : products) {
+            Product foundProduct = repository.getById(product.getId());
+            if (foundProduct == null) {
+                repository.save(product);
+            } else {
+                foundProduct.addNewItems(product.getItems());
+                repository.save(foundProduct);
+            }
+        }
     }
+
 }

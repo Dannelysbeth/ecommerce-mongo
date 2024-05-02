@@ -2,6 +2,7 @@ package dannelysbeth.ecommerce.mongodbshop.model;
 
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 
 import java.util.Set;
 
@@ -9,9 +10,12 @@ import java.util.Set;
 @Builder
 public class ProductItem {
 
+    @Id
+    private String id;
+
     private long quantityInStock;
 
-    private String sku;
+    private String SKU;
 
     private Set<Feature> features;
 

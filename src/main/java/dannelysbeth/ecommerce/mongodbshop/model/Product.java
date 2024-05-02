@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -24,5 +25,17 @@ public class Product {
     private String category;
 
     Set<ProductItem> items;
+
+    public void addNewItems(Set<ProductItem> productItems) {
+        if (productItems == null || productItems.isEmpty()) {
+            return;
+        }
+        for (ProductItem item : productItems) {
+            if (this.items == null) {
+                this.items = new HashSet<>();
+            }
+            this.items.add(item);
+        }
+    }
 
 }

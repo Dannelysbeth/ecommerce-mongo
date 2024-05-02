@@ -120,7 +120,7 @@ public class ProductMapperImpl implements ProductMapper {
         return productItems.stream().map(productItem ->
                 ProductItemResponse.builder()
                         .featureSet(productItem.getFeatures())
-                        .SKU(productItem.getSku())
+                        .SKU(productItem.getSKU())
                         .quantityInStock(productItem.getQuantityInStock())
                         .price(productItem.getPrice())
                         .build()

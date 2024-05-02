@@ -77,7 +77,7 @@ public class JsonProductMapperImpl implements JsonProductMapper {
             Set<Feature> features = getFeatures(variationsJsonArr);
 
             productItems.add(ProductItem.builder()
-                    .sku(SKU)
+                    .SKU(SKU)
                     .price(price)
                     .quantityInStock(quantityInStock)
                     .features(features)

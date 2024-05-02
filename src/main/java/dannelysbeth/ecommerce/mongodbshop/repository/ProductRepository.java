@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface ProductRepository extends MongoRepository<Product, String>
 //        , QuerydslPredicateExecutor<ProductItem>
 {
+    Product getById(String id);
 
 }
