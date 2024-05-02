@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Data
@@ -20,6 +21,7 @@ public class Product {
     private String description;
     private double price;
     private String category;
+    private long _currentSeqValue;
 
     public void addNewItems(Set<ProductItem> productItems) {
         if (productItems == null || productItems.isEmpty()) {
@@ -29,8 +31,25 @@ public class Product {
             if (this.items == null) {
                 this.items = new HashSet<>();
             }
+            item.setId(this.id + "-" + this._currentSeqValue);
             this.items.add(item);
+            this._currentSeqValue++;
         }
     }
+
+
+    public ProductItem getProductById(String SKU) {
+        if (this.items == null || this.items.isEmpty()) {
+            return null;
+        }
+        for (ProductItem item : this.items) {
+            if (Objects.equals(item.getSKU(), SKU)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+
 
 }

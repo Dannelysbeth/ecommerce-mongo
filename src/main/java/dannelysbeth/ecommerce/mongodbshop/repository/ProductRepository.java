@@ -10,4 +10,7 @@ public interface ProductRepository extends MongoRepository<Product, String>
 {
     Product getById(String id);
 
+    Product getByItems_SKU(String SKU);
+
+
 }
