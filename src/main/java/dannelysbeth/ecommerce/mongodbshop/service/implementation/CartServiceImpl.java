@@ -8,9 +8,6 @@ import dannelysbeth.ecommerce.mongodbshop.service.definition.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
-import java.util.Set;
-
 @Service
 @RequiredArgsConstructor
 public class CartServiceImpl implements CartService {
@@ -24,7 +21,7 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public Cart getCartByUser(User user) {
-        Cart cart =  repository.getByUser_Username(user.getUsername());
+        Cart cart = repository.getByUser_Username(user.getUsername());
         if (cart == null)
             cart = repository.save(Cart.builder()
                     .user(user)

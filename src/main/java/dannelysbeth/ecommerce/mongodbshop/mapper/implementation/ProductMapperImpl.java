@@ -90,15 +90,15 @@ public class ProductMapperImpl implements ProductMapper {
     @Override
     public Set<Product> transformFromRequest(List<ProductRequest> requests) {
         return requests.stream().map(req ->
-                        Product.builder()
-                                .id(req.getProductCode())
-                                .category(req.getCategory())
-                                .description(req.getDescription())
-                                .price(req.getPrice())
-                                .name(req.getName())
-                                .items(req.getProductItems())
-                                .build()
-                ).collect(Collectors.toSet());
+                Product.builder()
+                        .id(req.getProductCode())
+                        .category(req.getCategory())
+                        .description(req.getDescription())
+                        .price(req.getPrice())
+                        .name(req.getName())
+                        .items(req.getProductItems())
+                        .build()
+        ).collect(Collectors.toSet());
     }
 
     @Override

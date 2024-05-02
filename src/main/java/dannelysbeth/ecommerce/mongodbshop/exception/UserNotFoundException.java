@@ -3,11 +3,9 @@ package dannelysbeth.ecommerce.mongodbshop.exception;
 
 import org.springframework.http.HttpStatus;
 
-import static java.lang.StringTemplate.STR;
-
 public class UserNotFoundException extends BusinessException {
     public UserNotFoundException(String username) {
-        super(STR."user \{ username } not found",
+        super(STR. "user \{ username } not found" ,
                 HttpStatus.NOT_FOUND.value());
     }
 

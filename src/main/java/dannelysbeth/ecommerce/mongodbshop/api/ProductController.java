@@ -3,7 +3,6 @@ package dannelysbeth.ecommerce.mongodbshop.api;
 import dannelysbeth.ecommerce.mongodbshop.mapper.definition.ProductMapper;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.request.ProductRequest;
 import dannelysbeth.ecommerce.mongodbshop.model.Product;
-import dannelysbeth.ecommerce.mongodbshop.model.ProductItem;
 import dannelysbeth.ecommerce.mongodbshop.service.definition.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +21,6 @@ public class ProductController {
     private final ProductService productService;
 
     private final ProductMapper productMapper;
-
 
 
     @PreAuthorize("hasAnyAuthority('ADMIN_ROLE')")

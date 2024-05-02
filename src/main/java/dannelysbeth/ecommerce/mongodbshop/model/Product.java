@@ -13,18 +13,13 @@ import java.util.Set;
 @Document
 public class Product {
 
+    Set<ProductItem> items;
     @Id
     private String id;
-
     private String name;
-
     private String description;
-
     private double price;
-
     private String category;
-
-    Set<ProductItem> items;
 
     public void addNewItems(Set<ProductItem> productItems) {
         if (productItems == null || productItems.isEmpty()) {
