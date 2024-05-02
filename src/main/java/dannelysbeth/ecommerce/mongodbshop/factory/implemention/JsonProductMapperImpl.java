@@ -2,8 +2,8 @@ package dannelysbeth.ecommerce.mongodbshop.factory.implemention;
 
 import dannelysbeth.ecommerce.mongodbshop.exception.FileInputException;
 import dannelysbeth.ecommerce.mongodbshop.factory.definition.JsonProductMapper;
-import dannelysbeth.ecommerce.mongodbshop.model.Feature;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.request.ProductRequest;
+import dannelysbeth.ecommerce.mongodbshop.model.Feature;
 import dannelysbeth.ecommerce.mongodbshop.model.ProductItem;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -68,7 +68,7 @@ public class JsonProductMapperImpl implements JsonProductMapper {
 
     private Set<ProductItem> getProductItems(JSONArray jsonArray) {
         Set<ProductItem> productItems = new HashSet<>();
-        jsonArray.forEach( item -> {
+        jsonArray.forEach(item -> {
             JSONObject jsonObj = (JSONObject) item;
             long quantityInStock = (long) jsonObj.get("quantityInStock");
             String SKU = jsonObj.get("SKU").toString();
@@ -77,7 +77,7 @@ public class JsonProductMapperImpl implements JsonProductMapper {
             Set<Feature> features = getFeatures(variationsJsonArr);
 
             productItems.add(ProductItem.builder()
-                    .sku(SKU)
+                    .SKU(SKU)
                     .price(price)
                     .quantityInStock(quantityInStock)
                     .features(features)

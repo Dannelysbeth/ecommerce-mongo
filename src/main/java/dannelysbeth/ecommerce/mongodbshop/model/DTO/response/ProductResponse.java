@@ -1,10 +1,8 @@
 package dannelysbeth.ecommerce.mongodbshop.model.DTO.response;
 
 import dannelysbeth.ecommerce.mongodbshop.model.ProductItem;
-import dannelysbeth.ecommerce.mongodbshop.model.Variation;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 
 import java.util.Set;
 

@@ -90,15 +90,18 @@ public class ProductMapperImpl implements ProductMapper {
     @Override
     public Set<Product> transformFromRequest(List<ProductRequest> requests) {
         return requests.stream().map(req ->
-                        Product.builder()
-                                .id(req.getProductCode())
-                                .category(req.getCategory())
-                                .description(req.getDescription())
-                                .price(req.getPrice())
-                                .name(req.getName())
-                                .items(req.getProductItems())
-                                .build()
-                ).collect(Collectors.toSet());
+                {
+                    Product product = Product.builder()
+                            .id(req.getProductCode())
+                            .category(req.getCategory())
+                            .description(req.getDescription())
+                            .price(req.getPrice())
+                            .name(req.getName())
+                            .build();
+                    product.addNewItems(req.getProductItems());
+                    return product;
+                }
+        ).collect(Collectors.toSet());
     }
 
     @Override
@@ -120,11 +123,10 @@ public class ProductMapperImpl implements ProductMapper {
         return productItems.stream().map(productItem ->
                 ProductItemResponse.builder()
                         .featureSet(productItem.getFeatures())
-                        .SKU(productItem.getSku())
+                        .SKU(productItem.getSKU())
                         .quantityInStock(productItem.getQuantityInStock())
                         .price(productItem.getPrice())
                         .build()
         ).collect(Collectors.toSet());
     }
-
 }

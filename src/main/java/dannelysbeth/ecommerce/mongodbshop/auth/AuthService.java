@@ -4,7 +4,6 @@ package dannelysbeth.ecommerce.mongodbshop.auth;
 import dannelysbeth.ecommerce.mongodbshop.auth.DTO.request.AuthenticationRequest;
 import dannelysbeth.ecommerce.mongodbshop.auth.DTO.request.RegisterRequest;
 import dannelysbeth.ecommerce.mongodbshop.auth.DTO.response.AuthenticationResponse;
-import dannelysbeth.ecommerce.mongodbshop.model.enums.Role;
 import dannelysbeth.ecommerce.mongodbshop.exception.EmailExistsException;
 import dannelysbeth.ecommerce.mongodbshop.exception.IncorrectPasswordException;
 import dannelysbeth.ecommerce.mongodbshop.exception.UserNotFoundException;
@@ -12,6 +11,7 @@ import dannelysbeth.ecommerce.mongodbshop.exception.UsernameAlreadyTakenExceptio
 import dannelysbeth.ecommerce.mongodbshop.mapper.definition.UserMapper;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.request.UserRequest;
 import dannelysbeth.ecommerce.mongodbshop.model.User;
+import dannelysbeth.ecommerce.mongodbshop.model.enums.Role;
 import dannelysbeth.ecommerce.mongodbshop.repository.UserRepository;
 import dannelysbeth.ecommerce.mongodbshop.security.JWTService;
 import lombok.RequiredArgsConstructor;
