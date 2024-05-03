@@ -1,17 +1,16 @@
-package dannelysbeth.ecommerce.mongodbshop.model;
+package dannelysbeth.ecommerce.mongodbshop.model.DTO;
 
+import dannelysbeth.ecommerce.mongodbshop.model.Feature;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 
 import java.util.Set;
 
 @Data
 @Builder
-public class CartItem {
+public class ProductItemFullInfo {
 
-    @Id
-    private String id;
+    private String productItemCode;
 
     private String productCode;
 
@@ -27,5 +26,5 @@ public class CartItem {
 
     private Set<Feature> features;
 
-    private int quantity;
+    private long quantityInStock;
 }

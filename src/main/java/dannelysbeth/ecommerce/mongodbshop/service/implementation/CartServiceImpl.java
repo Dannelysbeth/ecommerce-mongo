@@ -21,7 +21,7 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public Cart getCartByUser(User user) {
-        Cart cart = repository.getByUser_Username(user.getUsername());
+        Cart cart = repository.getByUser(user);
         if (cart == null)
             cart = repository.save(Cart.builder()
                     .user(user)
@@ -31,11 +31,13 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public void addItemToCart(Cart cart, CartItem cartItem) {
-
+        cart.addCartItem(cartItem);
+        repository.save(cart);
     }
 
     @Override
     public void emptyCart(Cart cart) {
-
+        cart.setItems(null);
+        repository.save(cart);
     }
 }

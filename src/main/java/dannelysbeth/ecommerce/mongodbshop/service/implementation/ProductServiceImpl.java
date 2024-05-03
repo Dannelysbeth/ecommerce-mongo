@@ -2,8 +2,10 @@ package dannelysbeth.ecommerce.mongodbshop.service.implementation;
 
 import dannelysbeth.ecommerce.mongodbshop.factory.definition.JsonProductMapper;
 import dannelysbeth.ecommerce.mongodbshop.mapper.definition.ProductMapper;
+import dannelysbeth.ecommerce.mongodbshop.model.DTO.ProductItemFullInfo;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.request.ProductRequest;
 import dannelysbeth.ecommerce.mongodbshop.model.Product;
+import dannelysbeth.ecommerce.mongodbshop.model.ProductItem;
 import dannelysbeth.ecommerce.mongodbshop.repository.ProductRepository;
 import dannelysbeth.ecommerce.mongodbshop.service.definition.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -43,6 +45,29 @@ public class ProductServiceImpl implements ProductService {
                 repository.save(foundProduct);
             }
         }
+    }
+
+    @Override
+    public ProductItem getProductItemById(String productItemCode) {
+        Product product = this.repository.getByItems_id(productItemCode);
+        return product.getProductById(productItemCode);
+    }
+
+    @Override
+    public ProductItemFullInfo getFullProductItemInfo(String productItemCode) {
+        Product product = this.repository.getByItems_id(productItemCode);
+        ProductItem productItem =  product.getProductById(productItemCode);
+        return ProductItemFullInfo.builder()
+                .productCode(product.getId())
+                .description(product.getDescription())
+                .name(product.getName())
+                .category(product.getCategory())
+                .price(productItem.getPrice())
+                .productItemCode(productItemCode)
+                .quantityInStock(productItem.getQuantityInStock())
+                .features(productItem.getFeatures())
+                .sku(productItem.getSKU())
+                .build();
     }
 
 }
