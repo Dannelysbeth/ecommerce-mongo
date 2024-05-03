@@ -10,10 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be2c35e3-2f67-4f4a-b6a9-f25705051fa2" name="Changes" comment="cleanup code">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/api/CartController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/mapper/definition/CartMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/mapper/implementation/CartMapperImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/ProductItemFullInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/mapper/implementation/ProductMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/mapper/implementation/ProductMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/CartItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/response/CartResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/response/CartResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/repository/CartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/repository/CartRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/definition/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/definition/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/CartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/CartServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/ProductServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,44 +68,44 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2eihfCsJGz7B4ZfCs6Tfhj0Ym9P" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "products",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/my_stuff/studia/magisterka/ProjektMagisterski/backend/mongodb-shop/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/response",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.12806372",
-    "project.structure.side.proportion": "0.07037298",
-    "settings.editor.selected.configurable": "configurable.group.appearance",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;cart&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/my_stuff/studia/magisterka/ProjektMagisterski/backend/mongodb-shop/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/response&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.12806372&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.07037298&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mongo"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mongo&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -210,7 +220,7 @@
       <workItem from="1713009343876" duration="25058000" />
       <workItem from="1713108707149" duration="8181000" />
       <workItem from="1713805133331" duration="921000" />
-      <workItem from="1714330821903" duration="36770000" />
+      <workItem from="1714330821903" duration="52455000" />
     </task>
     <task id="LOCAL-00001" summary="updated application properties">
       <option name="closed" value="true" />
@@ -324,7 +334,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714627671379</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added ideal id for productItems">
+      <option name="closed" value="true" />
+      <created>1714633315394</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1714633315394</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,7 +374,8 @@
     <MESSAGE value="added products from body instead of file" />
     <MESSAGE value="added cart and updated creating existing products" />
     <MESSAGE value="cleanup code" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleanup code" />
+    <MESSAGE value="added ideal id for productItems" />
+    <option name="LAST_COMMIT_MESSAGE" value="added ideal id for productItems" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -403,13 +422,63 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/ProductServiceImpl.java</url>
-          <line>28</line>
+          <line>30</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/mapper/implementation/ProductMapperImpl.java</url>
           <line>91</line>
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/api/CartController.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/CartServiceImpl.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/mapper/implementation/CartMapperImpl.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/ProductServiceImpl.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Product.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/api/CartController.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/CartServiceImpl.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Cart.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Cart.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Cart.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

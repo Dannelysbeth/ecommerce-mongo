@@ -38,12 +38,12 @@ public class Product {
     }
 
 
-    public ProductItem getProductById(String SKU) {
+    public ProductItem getProductById(String id) {
         if (this.items == null || this.items.isEmpty()) {
             return null;
         }
         for (ProductItem item : this.items) {
-            if (Objects.equals(item.getSKU(), SKU)) {
+            if (Objects.equals(item.getId(), id)) {
                 return item;
             }
         }
