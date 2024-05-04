@@ -2,6 +2,7 @@ package dannelysbeth.ecommerce.mongodbshop.service.implementation;
 
 import dannelysbeth.ecommerce.mongodbshop.auth.AuthService;
 import dannelysbeth.ecommerce.mongodbshop.exception.UserNotFoundException;
+import dannelysbeth.ecommerce.mongodbshop.model.Address;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.request.UserRequest;
 import dannelysbeth.ecommerce.mongodbshop.model.User;
 import dannelysbeth.ecommerce.mongodbshop.repository.UserRepository;
@@ -50,6 +51,17 @@ public class UserServiceImpl implements UserService {
     @Override
     public void importUsers(Set<UserRequest> requests) {
         this.authService.importMultipleUsers(requests);
+    }
+
+    @Override
+    public Set<Address> getAddressesByUserAddresses(User user) {
+        return user.getAddresses();
+    }
+
+    @Override
+    public void addAddressToUser(User user, Address address) {
+        user.addAddress(address);
+        userRepository.save(user);
     }
 
 }

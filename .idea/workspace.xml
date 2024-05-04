@@ -9,21 +9,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be2c35e3-2f67-4f4a-b6a9-f25705051fa2" name="Changes" comment="cleanup code">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/api/CartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/mapper/definition/CartMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/mapper/implementation/CartMapperImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/ProductItemFullInfo.java" afterDir="false" />
+    <list default="true" id="be2c35e3-2f67-4f4a-b6a9-f25705051fa2" name="Changes" comment="working adding item to cart">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/api/AddressController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/exception/AddressNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/exception/CountryNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/exception/NotEnoughProductException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/exception/PaymentMethodNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/exception/ShippingMethodNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/mapper/definition/AddressMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/mapper/implementation/AddressMapperImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/repository/CountryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/definition/CountryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/CountryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/CartItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/response/CartResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/response/CartResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/repository/CartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/repository/CartRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/repository/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/definition/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/definition/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/CartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/CartServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/api/handlers/BusinessExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/api/handlers/BusinessExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/OrderLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/OrderItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Variation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/VariationOption.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/definition/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/definition/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +91,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;cart&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;order&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/my_stuff/studia/magisterka/ProjektMagisterski/backend/mongodb-shop/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/response&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -121,9 +126,9 @@
       <recent name="D:\my_stuff\studia\magisterka\ProjektMagisterski\backend\mongodb-shop\src\main\java\dannelysbeth\ecommerce\mongodbshop\api" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="dannelysbeth.ecommerce.mongodbshop.model.DTO.request" />
       <recent name="dannelysbeth.ecommerce.mongodbshop.model.DTO" />
       <recent name="dannelysbeth.ecommerce.mongodbshop.model.DTO.response" />
-      <recent name="dannelysbeth.ecommerce.mongodbshop.model.DTO.request" />
       <recent name="dannelysbeth.ecommerce.mongodbshop.model" />
       <recent name="dannelysbeth.ecommerce.mongodbshop.repository" />
     </key>
@@ -133,7 +138,7 @@
       <module name="mongodb-shop" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dannelysbeth.ecommerce.mongodbshop.*" />
+          <option name="PATTERN" value="dannelysbeth.ecommerce.mongodbshop.api.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -220,7 +225,8 @@
       <workItem from="1713009343876" duration="25058000" />
       <workItem from="1713108707149" duration="8181000" />
       <workItem from="1713805133331" duration="921000" />
-      <workItem from="1714330821903" duration="52455000" />
+      <workItem from="1714330821903" duration="56252000" />
+      <workItem from="1714803985225" duration="2414000" />
     </task>
     <task id="LOCAL-00001" summary="updated application properties">
       <option name="closed" value="true" />
@@ -342,7 +348,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714633315394</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="working adding item to cart">
+      <option name="closed" value="true" />
+      <created>1714752160576</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1714752160576</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,7 +389,8 @@
     <MESSAGE value="added cart and updated creating existing products" />
     <MESSAGE value="cleanup code" />
     <MESSAGE value="added ideal id for productItems" />
-    <option name="LAST_COMMIT_MESSAGE" value="added ideal id for productItems" />
+    <MESSAGE value="working adding item to cart" />
+    <option name="LAST_COMMIT_MESSAGE" value="working adding item to cart" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
