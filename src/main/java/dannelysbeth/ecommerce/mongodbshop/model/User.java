@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 @Document
@@ -62,5 +63,13 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return false;
+    }
+
+    public void addAddress(Address address) {
+
+        if(this.addresses == null) {
+            this.addresses = new HashSet<>();
+        }
+        this.addresses.add(address);
     }
 }

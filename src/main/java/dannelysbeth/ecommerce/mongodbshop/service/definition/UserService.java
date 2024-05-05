@@ -1,6 +1,7 @@
 package dannelysbeth.ecommerce.mongodbshop.service.definition;
 
 
+import dannelysbeth.ecommerce.mongodbshop.model.Address;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.request.UserRequest;
 import dannelysbeth.ecommerce.mongodbshop.model.User;
 import org.springframework.stereotype.Service;
@@ -19,4 +20,8 @@ public interface UserService {
     Set<User> findAllUsers(String firstname, String lastname);
 
     void importUsers(Set<UserRequest> requests);
+
+    Set<Address> getAddressesByUserAddresses(User user);
+
+    void addAddressToUser(User user, Address address);
 }

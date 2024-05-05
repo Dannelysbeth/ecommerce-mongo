@@ -48,4 +48,34 @@ public class BusinessExceptionHandler {
     public ErrorResponse handleFileInputException(FileInputException exception) {
         return new ErrorResponse(exception);
     }
+
+    @ExceptionHandler(AddressNotFoundException.class)
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public ErrorResponse handleAddressNotFoundException(AddressNotFoundException exception) {
+        return new ErrorResponse(exception);
+    }
+
+    @ExceptionHandler(CountryNotFoundException.class)
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public ErrorResponse handleCountryNotFoundException(CountryNotFoundException exception) {
+        return new ErrorResponse(exception);
+    }
+
+    @ExceptionHandler(PaymentMethodNotFoundException.class)
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public ErrorResponse handlePaymentMethodNotFoundException(PaymentMethodNotFoundException exception) {
+        return new ErrorResponse(exception);
+    }
+
+    @ExceptionHandler(ShippingMethodNotFoundException.class)
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public ErrorResponse handleShippingMethodNotFoundException(ShippingMethodNotFoundException exception) {
+        return new ErrorResponse(exception);
+    }
+
+    @ExceptionHandler(NotEnoughProductException.class)
+    @ResponseStatus(value = HttpStatus.NOT_ACCEPTABLE)
+    public ErrorResponse handleNotEnoughProductException(NotEnoughProductException exception) {
+        return new ErrorResponse(exception);
+    }
 }
