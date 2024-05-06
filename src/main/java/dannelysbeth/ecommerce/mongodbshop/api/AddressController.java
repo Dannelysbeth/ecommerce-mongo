@@ -45,7 +45,7 @@ public class AddressController {
     }
 
     @PreAuthorize("hasAnyAuthority('ADMIN_ROLE', 'USER_ROLE')")
-    @PostMapping("/create")
+    @PostMapping()
     public ResponseEntity<String> saveOwnAddresses(@RequestBody AddressRequest request) {
         Country country = countryService.getCountryByCode(request.getCountry());
         User loggedUser = userService.getLoggedUser();

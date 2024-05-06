@@ -9,26 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be2c35e3-2f67-4f4a-b6a9-f25705051fa2" name="Changes" comment="working adding item to cart">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/api/AddressController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/exception/AddressNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/exception/CountryNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/exception/NotEnoughProductException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/exception/PaymentMethodNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/exception/ShippingMethodNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/mapper/definition/AddressMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/mapper/implementation/AddressMapperImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/repository/CountryRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/definition/CountryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/CountryServiceImpl.java" afterDir="false" />
+    <list default="true" id="be2c35e3-2f67-4f4a-b6a9-f25705051fa2" name="Changes" comment="added address response">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/api/handlers/BusinessExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/api/handlers/BusinessExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/OrderLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/OrderItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/api/AddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/api/AddressController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/Variation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/VariationOption.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/definition/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/definition/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -390,7 +374,8 @@
     <MESSAGE value="cleanup code" />
     <MESSAGE value="added ideal id for productItems" />
     <MESSAGE value="working adding item to cart" />
-    <option name="LAST_COMMIT_MESSAGE" value="working adding item to cart" />
+    <MESSAGE value="added address response" />
+    <option name="LAST_COMMIT_MESSAGE" value="added address response" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
