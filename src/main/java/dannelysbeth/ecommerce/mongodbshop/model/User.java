@@ -34,6 +34,8 @@ public class User implements UserDetails {
 
     private Set<Address> addresses;
 
+    private long _currAddressSeq;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
@@ -63,7 +65,6 @@ public class User implements UserDetails {
     }
 
     public void addAddress(Address address) {
-
         if (this.addresses == null) {
             this.addresses = new HashSet<>();
             address.setDefault(true);
@@ -73,6 +74,12 @@ public class User implements UserDetails {
                 address.setDefault(true);
             }
         }
+        address.setId(this._currAddressSeq);
+        _currAddressSeq++;
         this.addresses.add(address);
     }
+
+//    public Address getAddressById(long id) {
+//        this.addresses.stream().filter(Address::getId == id).findAny();
+//    }
 }

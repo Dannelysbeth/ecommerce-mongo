@@ -4,6 +4,8 @@ import dannelysbeth.ecommerce.mongodbshop.factory.definition.JsonProductMapper;
 import dannelysbeth.ecommerce.mongodbshop.mapper.definition.ProductMapper;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.ProductItemFullInfo;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.request.ProductRequest;
+import dannelysbeth.ecommerce.mongodbshop.model.Item;
+import dannelysbeth.ecommerce.mongodbshop.model.Order;
 import dannelysbeth.ecommerce.mongodbshop.model.Product;
 import dannelysbeth.ecommerce.mongodbshop.model.ProductItem;
 import dannelysbeth.ecommerce.mongodbshop.repository.ProductRepository;
@@ -68,6 +70,17 @@ public class ProductServiceImpl implements ProductService {
                 .features(productItem.getFeatures())
                 .sku(productItem.getSKU())
                 .build();
+    }
+
+    @Override
+    public void decreaseProductItems(Order order) {
+        Set<Item> items = order.getItems();
+
+        for (Item item : items) {
+            Product product = this.repository.getByItems_id(item.getId());
+            product.decreaseProductById(item.getId(), item.getQuantity());
+            this.repository.save(product);
+        }
     }
 
 }

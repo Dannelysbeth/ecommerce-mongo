@@ -20,11 +20,11 @@ public class Cart {
     @DBRef
     private User user;
 
-    private Set<CartItem> items;
+    private Set<Item> items;
 
     private double total;
 
-    public void addCartItem(CartItem item) {
+    public void addCartItem(Item item) {
         if (item == null) {
             return;
         }
@@ -32,7 +32,7 @@ public class Cart {
             this.items = new HashSet<>();
             items.add(item);
         } else {
-            CartItem foundItem = this.items.stream()
+            Item foundItem = this.items.stream()
                     .filter(i -> Objects.equals(i.getId(), item.getId()))
                     .findAny()
                     .orElse(null);

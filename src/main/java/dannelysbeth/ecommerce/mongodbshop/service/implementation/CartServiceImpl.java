@@ -1,7 +1,7 @@
 package dannelysbeth.ecommerce.mongodbshop.service.implementation;
 
 import dannelysbeth.ecommerce.mongodbshop.model.Cart;
-import dannelysbeth.ecommerce.mongodbshop.model.CartItem;
+import dannelysbeth.ecommerce.mongodbshop.model.Item;
 import dannelysbeth.ecommerce.mongodbshop.model.User;
 import dannelysbeth.ecommerce.mongodbshop.repository.CartRepository;
 import dannelysbeth.ecommerce.mongodbshop.service.definition.CartService;
@@ -30,8 +30,8 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public void addItemToCart(Cart cart, CartItem cartItem) {
-        cart.addCartItem(cartItem);
+    public void addItemToCart(Cart cart, Item item) {
+        cart.addCartItem(item);
         repository.save(cart);
     }
 

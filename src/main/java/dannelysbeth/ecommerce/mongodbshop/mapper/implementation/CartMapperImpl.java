@@ -2,7 +2,7 @@ package dannelysbeth.ecommerce.mongodbshop.mapper.implementation;
 
 import dannelysbeth.ecommerce.mongodbshop.mapper.definition.CartMapper;
 import dannelysbeth.ecommerce.mongodbshop.model.Cart;
-import dannelysbeth.ecommerce.mongodbshop.model.CartItem;
+import dannelysbeth.ecommerce.mongodbshop.model.Item;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.ProductItemFullInfo;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.response.CartResponse;
 import dannelysbeth.ecommerce.mongodbshop.model.ProductItem;
@@ -17,8 +17,8 @@ public class CartMapperImpl implements CartMapper {
     }
 
     @Override
-    public CartItem getCartItemFromProductItem(ProductItemFullInfo itemFullInfo, Cart cart) {
-        return CartItem.builder()
+    public Item getCartItemFromProductItem(ProductItemFullInfo itemFullInfo, Cart cart) {
+        return Item.builder()
                 .productCode(itemFullInfo.getProductCode())
                 .name(itemFullInfo.getName())
                 .category(itemFullInfo.getCategory())
