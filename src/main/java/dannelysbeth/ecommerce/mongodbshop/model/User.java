@@ -10,10 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Document
 @Data
@@ -36,6 +33,8 @@ public class User implements UserDetails {
     private Role role;
 
     private Set<Address> addresses;
+
+    private long _currAddressSeq;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -66,10 +65,21 @@ public class User implements UserDetails {
     }
 
     public void addAddress(Address address) {
-
-        if(this.addresses == null) {
+        if (this.addresses == null) {
             this.addresses = new HashSet<>();
+            address.setDefault(true);
+        } else {
+            Optional<Address> addr = this.addresses.stream().filter(Address::isDefault).findAny();
+            if (addr.isEmpty()) {
+                address.setDefault(true);
+            }
         }
+        address.setId(this._currAddressSeq);
+        _currAddressSeq++;
         this.addresses.add(address);
     }
+
+//    public Address getAddressById(long id) {
+//        this.addresses.stream().filter(Address::getId == id).findAny();
+//    }
 }

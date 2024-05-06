@@ -1,7 +1,7 @@
 package dannelysbeth.ecommerce.mongodbshop.service.definition;
 
 import dannelysbeth.ecommerce.mongodbshop.model.Cart;
-import dannelysbeth.ecommerce.mongodbshop.model.CartItem;
+import dannelysbeth.ecommerce.mongodbshop.model.Item;
 import dannelysbeth.ecommerce.mongodbshop.model.User;
 
 public interface CartService {
@@ -10,7 +10,7 @@ public interface CartService {
 
     Cart getCartByUser(User user);
 
-    void addItemToCart(Cart cart, CartItem item);
+    void addItemToCart(Cart cart, Item item);
 
     void emptyCart(Cart cart);
 

@@ -1,6 +1,7 @@
 package dannelysbeth.ecommerce.mongodbshop.service.implementation;
 
 import dannelysbeth.ecommerce.mongodbshop.auth.AuthService;
+import dannelysbeth.ecommerce.mongodbshop.exception.AddressNotFoundException;
 import dannelysbeth.ecommerce.mongodbshop.exception.UserNotFoundException;
 import dannelysbeth.ecommerce.mongodbshop.model.Address;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.request.UserRequest;
@@ -56,6 +57,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public Set<Address> getAddressesByUserAddresses(User user) {
         return user.getAddresses();
+    }
+
+    @Override
+    public Address getAddressByUserAndId(User user, long id) {
+        return user.getAddresses().stream()
+                .filter(addr -> addr.getId() == id)
+                .findAny()
+                .orElseThrow(AddressNotFoundException::new);
     }
 
     @Override

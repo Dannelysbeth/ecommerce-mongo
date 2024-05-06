@@ -9,6 +9,8 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 @Data
 public class Address {
 
+    private long id;
+
     @DBRef
     private Country country;
 

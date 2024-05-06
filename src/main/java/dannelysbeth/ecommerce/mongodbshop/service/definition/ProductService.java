@@ -1,6 +1,7 @@
 package dannelysbeth.ecommerce.mongodbshop.service.definition;
 
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.ProductItemFullInfo;
+import dannelysbeth.ecommerce.mongodbshop.model.Order;
 import dannelysbeth.ecommerce.mongodbshop.model.Product;
 import dannelysbeth.ecommerce.mongodbshop.model.ProductItem;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,5 +16,7 @@ public interface ProductService {
     ProductItem getProductItemById(String productItemCode);
 
     ProductItemFullInfo getFullProductItemInfo(String productItemCode);
+
+    void decreaseProductItems(Order order);
 
 }

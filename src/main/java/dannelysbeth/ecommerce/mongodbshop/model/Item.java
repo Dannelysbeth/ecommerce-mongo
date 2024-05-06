@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Data
 @Builder
-public class CartItem {
+public class Item {
 
     @Id
     private String id;

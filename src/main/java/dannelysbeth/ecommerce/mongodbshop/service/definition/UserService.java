@@ -23,5 +23,7 @@ public interface UserService {
 
     Set<Address> getAddressesByUserAddresses(User user);
 
+    Address getAddressByUserAndId(User user, long id);
+
     void addAddressToUser(User user, Address address);
 }

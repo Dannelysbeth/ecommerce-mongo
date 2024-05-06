@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Data
 @Builder
-public class CartItemResponse {
+public class ItemResponse {
 
     String productCode;
 

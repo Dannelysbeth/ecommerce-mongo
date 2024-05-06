@@ -12,7 +12,7 @@ public class OrderResponse {
 
     String username;
 
-    Set<CartItemResponse> items;
+    Set<ItemResponse> items;
 
     double total;
 

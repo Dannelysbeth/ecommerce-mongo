@@ -1,5 +1,6 @@
 package dannelysbeth.ecommerce.mongodbshop.model;
 
+import dannelysbeth.ecommerce.mongodbshop.exception.NotEnoughProductException;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -50,6 +51,20 @@ public class Product {
         return null;
     }
 
+    public void decreaseProductById(String productId, long quantity) {
+        ProductItem productItem = this.items.stream().filter(prodItem -> Objects.equals(prodItem.getId(), productId)).findAny().orElse(null);
+        if (productItem == null) {
+            return;
+        }
+
+        long newQuantityInStock = productItem.getQuantityInStock() - quantity;
+        if (newQuantityInStock < 0) {
+            throw new NotEnoughProductException();
+        }
+        this.items.remove(productItem);
+        productItem.setQuantityInStock(newQuantityInStock);
+        this.items.add(productItem);
+    }
 
 
 }

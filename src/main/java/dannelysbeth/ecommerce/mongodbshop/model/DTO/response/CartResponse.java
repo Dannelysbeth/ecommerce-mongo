@@ -1,6 +1,6 @@
 package dannelysbeth.ecommerce.mongodbshop.model.DTO.response;
 
-import dannelysbeth.ecommerce.mongodbshop.model.CartItem;
+import dannelysbeth.ecommerce.mongodbshop.model.Item;
 import lombok.Builder;
 import lombok.Data;
 
@@ -12,7 +12,7 @@ public class CartResponse {
 
     String username;
 
-    Set<CartItem> items;
+    Set<Item> items;
 
     double total;
 }
