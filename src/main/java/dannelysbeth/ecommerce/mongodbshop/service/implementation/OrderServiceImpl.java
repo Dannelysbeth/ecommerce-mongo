@@ -8,7 +8,6 @@ import dannelysbeth.ecommerce.mongodbshop.service.definition.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.Set;
 
 @Service
@@ -25,7 +24,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order createOrder(User user) {
-       return orderMapper.initOrder(user);
+        return orderMapper.initOrder(user);
     }
 
     @Override

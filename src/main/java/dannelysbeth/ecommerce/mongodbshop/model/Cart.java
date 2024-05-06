@@ -51,10 +51,10 @@ public class Cart {
 
     public void countTotal() {
         double sum = 0;
-        if((this.items != null && !this.items.isEmpty())) {
-          for (var item : this.items) {
-              sum += item.getQuantity() * item.getPrice();
-          }
+        if ((this.items != null && !this.items.isEmpty())) {
+            for (var item : this.items) {
+                sum += item.getQuantity() * item.getPrice();
+            }
         }
         this.total = sum;
     }

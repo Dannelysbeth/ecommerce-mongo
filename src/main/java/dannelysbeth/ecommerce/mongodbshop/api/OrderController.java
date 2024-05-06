@@ -43,7 +43,7 @@ public class OrderController {
         Set<Item> orderItems = new HashSet<>();
         for (Item cartItem : cart.getItems()) {
             ProductItem productItem = productService.getProductItemById(cartItem.getId());
-           orderItems.add(orderMapper.getItemFromCart(cartItem, productItem));
+            orderItems.add(orderMapper.getItemFromCart(cartItem, productItem));
         }
 
         order = orderMapper.updateOrderFromRequest(order, orderItems, shippingAddress, shippingMethod);
@@ -56,7 +56,7 @@ public class OrderController {
             return ResponseEntity.ok()
                     .body("Order was successfully created");
 
-        } catch(NotEnoughProductException ex) {
+        } catch (NotEnoughProductException ex) {
             orderService.deleteOrder(order);
             return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
                     .body("Not enough products in store");

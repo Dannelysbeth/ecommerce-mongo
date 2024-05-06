@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Address getAddressByUserAndId(User user, long id) {
         return user.getAddresses().stream()
-                .filter(addr-> addr.getId() == id)
+                .filter(addr -> addr.getId() == id)
                 .findAny()
                 .orElseThrow(AddressNotFoundException::new);
     }

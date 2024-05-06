@@ -58,7 +58,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductItemFullInfo getFullProductItemInfo(String productItemCode) {
         Product product = this.repository.getByItems_id(productItemCode);
-        ProductItem productItem =  product.getProductById(productItemCode);
+        ProductItem productItem = product.getProductById(productItemCode);
         return ProductItemFullInfo.builder()
                 .productCode(product.getId())
                 .description(product.getDescription())
