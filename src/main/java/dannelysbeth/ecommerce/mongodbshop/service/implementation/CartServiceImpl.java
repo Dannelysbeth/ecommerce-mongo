@@ -38,6 +38,7 @@ public class CartServiceImpl implements CartService {
     @Override
     public void emptyCart(Cart cart) {
         cart.setItems(null);
+        cart.setTotal(0);
         repository.save(cart);
     }
 }

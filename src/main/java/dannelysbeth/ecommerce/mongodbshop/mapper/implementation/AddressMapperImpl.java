@@ -3,6 +3,7 @@ package dannelysbeth.ecommerce.mongodbshop.mapper.implementation;
 import dannelysbeth.ecommerce.mongodbshop.mapper.definition.AddressMapper;
 import dannelysbeth.ecommerce.mongodbshop.model.Address;
 import dannelysbeth.ecommerce.mongodbshop.model.Country;
+import dannelysbeth.ecommerce.mongodbshop.model.DTO.AddressDto;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.request.AddressRequest;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.response.AddressResponse;
 import dannelysbeth.ecommerce.mongodbshop.model.User;
@@ -34,6 +35,20 @@ public class AddressMapperImpl implements AddressMapper {
                 .addressLine2(address.getAddressLine2())
                 .streetNumber(address.getStreetNumber())
                 .postalCode(address.getPostalCode())
+                .unitNumber(address.getUnitNumber())
+                .build();
+    }
+
+    @Override
+    public AddressDto transformAddressToDto(Address address) {
+        return AddressDto.builder()
+                .country(address.getCountry().getCountry())
+                .city(address.getCity())
+                .addressLine1(address.getAddressLine1())
+                .addressLine2(address.getAddressLine2())
+                .streetNumber(address.getStreetNumber())
+                .postalCode(address.getPostalCode())
+                .unitNumber(address.getUnitNumber())
                 .build();
     }
 }
