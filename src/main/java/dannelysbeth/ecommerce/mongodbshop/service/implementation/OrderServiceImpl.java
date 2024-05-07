@@ -29,7 +29,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void updateOrder(Order order) {
-
+        repository.save(order);
     }
 
     @Override

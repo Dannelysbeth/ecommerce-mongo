@@ -1,5 +1,6 @@
 package dannelysbeth.ecommerce.mongodbshop.model;
 
+import dannelysbeth.ecommerce.mongodbshop.model.DTO.AddressDto;
 import dannelysbeth.ecommerce.mongodbshop.model.enums.OrderStatus;
 import dannelysbeth.ecommerce.mongodbshop.model.enums.PaymentType;
 import lombok.Builder;
@@ -24,7 +25,7 @@ public class Order {
     @DBRef
     private User user;
 
-    private Address shippingAddress;
+    private AddressDto shippingAddress;
 
     private OrderStatus orderStatus;
 
@@ -42,7 +43,7 @@ public class Order {
 
     public void addItemToOrder(Item item) {
         if (item == null) {
-            return;
+            throw new NullPointerException();
         }
         if (items == null) {
             this.items = new HashSet<>();

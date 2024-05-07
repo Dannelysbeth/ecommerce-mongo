@@ -1,6 +1,7 @@
 package dannelysbeth.ecommerce.mongodbshop.api;
 
 import dannelysbeth.ecommerce.mongodbshop.exception.NotEnoughProductException;
+import dannelysbeth.ecommerce.mongodbshop.mapper.definition.AddressMapper;
 import dannelysbeth.ecommerce.mongodbshop.mapper.definition.OrderMapper;
 import dannelysbeth.ecommerce.mongodbshop.model.*;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.request.OrderRequest;
@@ -28,6 +29,7 @@ public class OrderController {
     private final ShippingMethodService shippingMethodService;
 
     private final OrderMapper orderMapper;
+    private final AddressMapper addressMapper;
 
     @PreAuthorize("hasAnyAuthority('ADMIN_ROLE', 'USER_ROLE')")
     @PostMapping("/create")
@@ -46,7 +48,7 @@ public class OrderController {
             orderItems.add(orderMapper.getItemFromCart(cartItem, productItem));
         }
 
-        order = orderMapper.updateOrderFromRequest(order, orderItems, shippingAddress, shippingMethod);
+        order = orderMapper.updateOrderFromRequest(order, orderItems, addressMapper.transformAddressToDto(shippingAddress), shippingMethod);
 
 
         try {
