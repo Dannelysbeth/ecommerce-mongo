@@ -34,7 +34,7 @@ public class OrderMapperImpl implements OrderMapper {
                 .shippingAddress(shippingAddress)
                 .items(items)
                 .user(order.getUser())
-                .total(countTotalPrice(items))
+                .total(countTotalPrice(items, shippingMethod))
                 .build();
     }
 
@@ -59,12 +59,15 @@ public class OrderMapperImpl implements OrderMapper {
         return item;
     }
 
-    private double countTotalPrice(Set<Item> orderItems) {
+    private double countTotalPrice(Set<Item> orderItems, ShippingMethod  shippingMethod) {
         double sum = 0;
         if (orderItems != null) {
             for (Item orderItem : orderItems) {
                 sum += orderItem.getPrice() * orderItem.getQuantity();
             }
+        }
+        if (shippingMethod != null) {
+            sum += shippingMethod.getPrice();
         }
         return sum;
     }
