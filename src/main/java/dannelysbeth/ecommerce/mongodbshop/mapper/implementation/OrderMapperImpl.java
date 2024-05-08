@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -38,8 +39,18 @@ public class OrderMapperImpl implements OrderMapper {
     }
 
     @Override
-    public Set<OrderResponse> transformToOrderResponse(Set<Order> order) {
-        return null;
+    public Set<OrderResponse> transformToOrderResponse(Set<Order> orders) {
+        return orders.stream().map(order->OrderResponse
+                .builder()
+                .shippingAddress(order.getShippingAddress())
+                .username(order.getUser().getUsername())
+                .orderStatus(order.getOrderStatus().getDisplayName())
+                .orderDate(order.getOrderDate())
+                .items(order.getItems())
+                .total(order.getTotal())
+                .shippingMethod(order.getShippingMethod() == null ? "None chosen" : order.getShippingMethod().getName())
+                .build()
+        ).collect(Collectors.toSet());
     }
 
     @Override

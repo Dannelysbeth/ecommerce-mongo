@@ -1,5 +1,7 @@
 package dannelysbeth.ecommerce.mongodbshop.model.DTO.response;
 
+import dannelysbeth.ecommerce.mongodbshop.model.DTO.AddressDto;
+import dannelysbeth.ecommerce.mongodbshop.model.Item;
 import lombok.Builder;
 import lombok.Data;
 
@@ -12,11 +14,11 @@ public class OrderResponse {
 
     String username;
 
-    Set<ItemResponse> items;
+    Set<Item> items;
 
     double total;
 
-    AddressResponse shippingAddress;
+    AddressDto shippingAddress;
 
     String orderStatus;
 
