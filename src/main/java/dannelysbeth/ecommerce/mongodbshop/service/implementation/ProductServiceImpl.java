@@ -1,6 +1,7 @@
 package dannelysbeth.ecommerce.mongodbshop.service.implementation;
 
 import dannelysbeth.ecommerce.mongodbshop.factory.definition.JsonProductMapper;
+import dannelysbeth.ecommerce.mongodbshop.filters.ProductSpecification;
 import dannelysbeth.ecommerce.mongodbshop.mapper.definition.ProductMapper;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.ProductItemFullInfo;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.request.ProductRequest;
@@ -11,19 +12,33 @@ import dannelysbeth.ecommerce.mongodbshop.model.ProductItem;
 import dannelysbeth.ecommerce.mongodbshop.repository.ProductRepository;
 import dannelysbeth.ecommerce.mongodbshop.service.definition.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository repository;
+    private final MongoTemplate mongoTemplate;
     private final JsonProductMapper jsonFactory;
     private final ProductMapper mapper;
+
+    @Override
+    public Set<Product> getProducts(Double priceStartsAt, Double priceEndsAt, Long quantity, List<String> category, List<String> color, List<String> size) {
+       Query query = ProductSpecification.filterBy(priceStartsAt, priceEndsAt, quantity, category, color, size);
+        List<Product> products = mongoTemplate.find(query, Product.class);
+        return products.stream().collect(Collectors.toSet());
+        //new HashSet<>(repository.findAll(query));
+    }
 
     @Override
     public void importFromFile(MultipartFile file) {
