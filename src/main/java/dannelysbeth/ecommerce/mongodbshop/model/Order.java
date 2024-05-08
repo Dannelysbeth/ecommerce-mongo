@@ -73,8 +73,15 @@ public class Order {
                 sum += item.getQuantity() * item.getPrice();
             }
         }
+        if (this.shippingMethod != null) {
+            sum += this.shippingMethod.getPrice();
+        }
         this.total = sum;
     }
 
 
+    public void setShippingMethod(ShippingMethod shippingMethod) {
+        this.shippingMethod = shippingMethod;
+        this.countTotal();
+    }
 }
