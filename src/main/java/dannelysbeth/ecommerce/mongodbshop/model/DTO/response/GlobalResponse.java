@@ -11,7 +11,8 @@ public class GlobalResponse {
 
     long count;
 
+    String responseTime;
+
     Set<Object> entries;
 
-    String responseTime;
 }

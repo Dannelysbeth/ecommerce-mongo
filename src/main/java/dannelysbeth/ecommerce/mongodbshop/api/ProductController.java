@@ -66,8 +66,8 @@ public class ProductController {
         return ResponseEntity.ok()
                 .body(GlobalResponse.builder()
                         .count(responses.size())
+                        .responseTime(productService.getRepositoryResponseTime() + "ms")
                         .entries( Collections.singleton(responses))
-                        .responseTime(watch.getTotalTimeMillis() + "ms")
                         .build());
 
 

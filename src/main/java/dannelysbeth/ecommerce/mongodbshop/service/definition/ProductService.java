@@ -11,6 +11,8 @@ import java.util.Set;
 
 public interface ProductService {
 
+    public double getRepositoryResponseTime();
+
     Set<Product> getProducts(Double priceStartsAt, Double priceEndsAt, Long quantity, List<String> category, List<String> color, List<String> size);
     void importFromFile(MultipartFile file);
 
