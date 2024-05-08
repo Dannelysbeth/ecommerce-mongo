@@ -14,7 +14,7 @@ public interface OrderMapper {
 
     Order updateOrderFromRequest(Order order, Set<Item> items, AddressDto address, ShippingMethod shippingMethod);
 
-    Set<OrderResponse> transformToOrderResponse(Set<Order> order);
+    Set<OrderResponse> transformToOrderResponse(Set<Order> orders);
 
     Item getItemFromCart(Item item, ProductItem productItem);
 }

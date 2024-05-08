@@ -67,7 +67,7 @@ public class OrderController {
     }
 
     @PreAuthorize("hasAnyAuthority('ADMIN_ROLE', 'USER_ROLE')")
-    @GetMapping("")
+    @GetMapping()
     public ResponseEntity<Set<OrderResponse>> getLoggedUserOrders() {
         User loggedUser = userService.getLoggedUser();
 
