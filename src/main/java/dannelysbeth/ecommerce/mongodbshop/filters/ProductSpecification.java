@@ -15,7 +15,10 @@ public class ProductSpecification {
         List<Criteria> criteriaList = new ArrayList<>();
 
         if (colors != null) {
-            criteriaList.add(getByColors(colors));
+            criteriaList.add(getByValues(colors));
+        }
+        if (sizes != null) {
+            criteriaList.add(getByValues(sizes));
         }
         if (categories != null) {
             criteriaList.add(getByCategories(categories));
@@ -26,8 +29,11 @@ public class ProductSpecification {
         if (higherPrice != null) {
             criteriaList.add(getByPriceSmallerThan(higherPrice));
         }
+        if (minQuantity != null) {
+            criteriaList.add(getByMinQuantity(minQuantity));
+        }
 
-        // Combine all criteria with an 'and' operator
+
         if (!criteriaList.isEmpty()) {
             Criteria finalCriteria = new Criteria().andOperator(criteriaList.toArray(new Criteria[0]));
             query.addCriteria(finalCriteria);
@@ -36,19 +42,27 @@ public class ProductSpecification {
         return query;
     }
 
-    public static  Criteria getByCategories(List<String> categories) {
+    public static Criteria getByCategories(List<String> categories) {
         return Criteria.where("category").in(categories);
     }
 
-    public static  Criteria getByColors(List<String> colors) {
+    public static Criteria getByValues(List<String> colors) {
         return Criteria.where("items.features").elemMatch(
                 Criteria.where("value").in(colors)
         );
     }
-    public static  Criteria getByPriceGreaterThan(double price) {
+
+    public static Criteria getByMinQuantity(long minQuantity) {
+        return Criteria.where("items").elemMatch(
+                Criteria.where("quantityInStock").gte(minQuantity)
+        );
+    }
+
+    public static Criteria getByPriceGreaterThan(double price) {
         return Criteria.where("price").gte(price);
     }
-    public static  Criteria getByPriceSmallerThan(double price) {
+
+    public static Criteria getByPriceSmallerThan(double price) {
         return Criteria.where("price").lte(price);
     }
 
