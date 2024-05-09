@@ -12,16 +12,15 @@ import dannelysbeth.ecommerce.mongodbshop.model.ProductItem;
 import dannelysbeth.ecommerce.mongodbshop.repository.ProductRepository;
 import dannelysbeth.ecommerce.mongodbshop.service.definition.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StopWatch;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -32,12 +31,21 @@ public class ProductServiceImpl implements ProductService {
     private final JsonProductMapper jsonFactory;
     private final ProductMapper mapper;
 
+    private StopWatch watch = new StopWatch();
+
+    public double getRepositoryResponseTime() {
+        return this.watch.getTotalTimeMillis();
+    }
+
+
     @Override
     public Set<Product> getProducts(Double priceStartsAt, Double priceEndsAt, Long quantity, List<String> category, List<String> color, List<String> size) {
-       Query query = ProductSpecification.filterBy(priceStartsAt, priceEndsAt, quantity, category, color, size);
+        Query query = ProductSpecification.filterBy(priceStartsAt, priceEndsAt, quantity, category, color, size);
+        this.watch = new StopWatch();
+        this.watch.start();
         List<Product> products = mongoTemplate.find(query, Product.class);
-        return products.stream().collect(Collectors.toSet());
-        //new HashSet<>(repository.findAll(query));
+        this.watch.stop();
+        return new HashSet<>(products);
     }
 
     @Override

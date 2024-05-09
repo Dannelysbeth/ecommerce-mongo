@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/api/product")
 @RequiredArgsConstructor
 public class ProductController {
 
@@ -66,8 +66,8 @@ public class ProductController {
         return ResponseEntity.ok()
                 .body(GlobalResponse.builder()
                         .count(responses.size())
+                        .responseTime(productService.getRepositoryResponseTime() + "ms")
                         .entries( Collections.singleton(responses))
-                        .responseTime(watch.getTotalTimeMillis() + "ms")
                         .build());
 
 
