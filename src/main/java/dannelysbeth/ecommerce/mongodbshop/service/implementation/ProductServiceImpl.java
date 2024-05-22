@@ -58,6 +58,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void saveMany(Set<Product> products) {
+        this.watch = new StopWatch();
+        this.watch.start();
         if (products == null || products.isEmpty()) {
             return;
         }
@@ -70,18 +72,26 @@ public class ProductServiceImpl implements ProductService {
                 repository.save(foundProduct);
             }
         }
+        this.watch.stop();
     }
 
     @Override
     public ProductItem getProductItemById(String productItemCode) {
+        this.watch = new StopWatch();
+        this.watch.start();
         Product product = this.repository.getByItems_id(productItemCode);
-        return product.getProductById(productItemCode);
+        ProductItem productItem = product.getProductById(productItemCode);
+        this.watch.stop();
+        return productItem;
     }
 
     @Override
     public ProductItemFullInfo getFullProductItemInfo(String productItemCode) {
+        this.watch = new StopWatch();
+        this.watch.start();
         Product product = this.repository.getByItems_id(productItemCode);
         ProductItem productItem = product.getProductById(productItemCode);
+        this.watch.stop();
         return ProductItemFullInfo.builder()
                 .productCode(product.getId())
                 .description(product.getDescription())
@@ -98,12 +108,14 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void decreaseProductItems(Order order) {
         Set<Item> items = order.getItems();
-
+        this.watch = new StopWatch();
+        this.watch.start();
         for (Item item : items) {
             Product product = this.repository.getByItems_id(item.getId());
             product.decreaseProductById(item.getId(), item.getQuantity());
             this.repository.save(product);
         }
+        this.watch.stop();
     }
 
 }

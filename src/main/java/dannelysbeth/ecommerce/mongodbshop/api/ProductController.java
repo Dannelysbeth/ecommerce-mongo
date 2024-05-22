@@ -13,10 +13,7 @@ import org.springframework.util.StopWatch;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/product")
@@ -30,19 +27,25 @@ public class ProductController {
 
     @PreAuthorize("hasAnyAuthority('ADMIN_ROLE')")
     @PostMapping("/import")
-    public ResponseEntity<String> importProducts(@RequestPart("file") MultipartFile file) {
+    public ResponseEntity<GlobalResponse> importProducts(@RequestPart("file") MultipartFile file) {
         this.productService.importFromFile(file);
         return ResponseEntity.ok()
-                .body("Products were imported successfully");
+                .body(GlobalResponse.builder()
+                        .entries(new HashSet<>(Collections.singleton("Products were imported successfully")))
+                        .responseTime(productService.getRepositoryResponseTime()+"ms")
+                        .build());
     }
 
     @PreAuthorize("hasAnyAuthority('ADMIN_ROLE')")
     @PostMapping("/add")
-    public ResponseEntity<String> importProducts(@RequestBody List<ProductRequest> productRequests) {
+    public ResponseEntity<GlobalResponse> importProducts(@RequestBody List<ProductRequest> productRequests) {
         Set<Product> products = this.productMapper.transformFromRequest(productRequests);
         this.productService.saveMany(products);
         return ResponseEntity.ok()
-                .body("Products were imported successfully");
+                .body(GlobalResponse.builder()
+                        .entries(new HashSet<>(Collections.singleton("Products were imported successfully")))
+                        .responseTime(productService.getRepositoryResponseTime()+"ms")
+                        .build());
     }
 
     @GetMapping
