@@ -7,6 +7,7 @@ import dannelysbeth.ecommerce.mongodbshop.repository.OrderRepository;
 import dannelysbeth.ecommerce.mongodbshop.service.definition.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StopWatch;
 
 import java.util.Set;
 
@@ -16,24 +17,39 @@ public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository repository;
     private final OrderMapper orderMapper;
+    private final StopWatch watch = new StopWatch();
+
+    public double getRepositoryResponseTime() {
+        return this.watch.getTotalTimeMillis();
+    }
 
     @Override
     public Set<Order> getOrdersByUser(User user) {
-        return repository.getOrdersByUser(user);
+        watch.start();
+        Set<Order> orders = repository.getOrdersByUser(user);
+        watch.stop();
+        return orders;
     }
 
     @Override
     public Order createOrder(User user) {
-        return orderMapper.initOrder(user);
+        watch.start();
+        Order order = orderMapper.initOrder(user);
+        watch.stop();
+        return order;
     }
 
     @Override
     public void updateOrder(Order order) {
+        watch.start();
         repository.save(order);
+        watch.stop();
     }
 
     @Override
     public void deleteOrder(Order order) {
-
+        watch.start();
+        repository.delete(order);
+        watch.stop();
     }
 }

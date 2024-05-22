@@ -5,6 +5,7 @@ import dannelysbeth.ecommerce.mongodbshop.mapper.definition.AddressMapper;
 import dannelysbeth.ecommerce.mongodbshop.mapper.definition.OrderMapper;
 import dannelysbeth.ecommerce.mongodbshop.model.*;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.request.OrderRequest;
+import dannelysbeth.ecommerce.mongodbshop.model.DTO.response.GlobalResponse;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.response.OrderResponse;
 import dannelysbeth.ecommerce.mongodbshop.service.definition.*;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -33,7 +35,7 @@ public class OrderController {
 
     @PreAuthorize("hasAnyAuthority('ADMIN_ROLE', 'USER_ROLE')")
     @PostMapping("/create")
-    public ResponseEntity<String> createOrder(@RequestBody OrderRequest request) {
+    public ResponseEntity<GlobalResponse> createOrder(@RequestBody OrderRequest request) {
         User loggedUser = userService.getLoggedUser();
         Cart cart = cartService.getCartByUser(loggedUser);
         ShippingMethod shippingMethod = shippingMethodService.getShippingMethodByCode(request.getShippingMethod());
@@ -55,27 +57,24 @@ public class OrderController {
             productService.decreaseProductItems(order);
             orderService.updateOrder(order);
             cartService.emptyCart(cart);
-            return ResponseEntity.ok()
-                    .body("Order was successfully created");
+            return ResponseEntity.ok().body(GlobalResponse.builder().entries(Collections.singleton("Order was successfully created")).responseTime(orderService.getRepositoryResponseTime() + "ms").build());
 
         } catch (NotEnoughProductException ex) {
             orderService.deleteOrder(order);
-            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
-                    .body("Not enough products in store");
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(GlobalResponse.builder().entries(Collections.singleton("Not enough products in store")).responseTime(orderService.getRepositoryResponseTime() + "ms").build());
         }
 
     }
 
     @PreAuthorize("hasAnyAuthority('ADMIN_ROLE', 'USER_ROLE')")
     @GetMapping()
-    public ResponseEntity<Set<OrderResponse>> getLoggedUserOrders() {
+    public ResponseEntity<GlobalResponse> getLoggedUserOrders() {
         User loggedUser = userService.getLoggedUser();
 
         Set<Order> orders = orderService.getOrdersByUser(loggedUser);
 
-        Set<OrderResponse> orderResponse = orderMapper.transformToOrderResponse(orders);
+        Set<OrderResponse> orderResponses = orderMapper.transformToOrderResponse(orders);
 
-        return ResponseEntity.ok()
-                .body(orderResponse);
+        return ResponseEntity.ok().body(GlobalResponse.builder().responseTime(orderService.getRepositoryResponseTime() + "ms").entries(Collections.singleton(orderResponses)).count(orderResponses.size()).build());
     }
 }

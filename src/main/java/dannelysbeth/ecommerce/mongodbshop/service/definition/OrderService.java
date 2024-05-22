@@ -7,6 +7,8 @@ import java.util.Set;
 
 public interface OrderService {
 
+    double getRepositoryResponseTime();
+
     Set<Order> getOrdersByUser(User user);
 
     Order createOrder(User user);
