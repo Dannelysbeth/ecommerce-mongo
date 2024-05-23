@@ -6,6 +6,8 @@ import dannelysbeth.ecommerce.mongodbshop.model.User;
 
 public interface CartService {
 
+    double getRepositoryResponseTime();
+
     void saveCart(Cart cart);
 
     Cart getCartByUser(User user);

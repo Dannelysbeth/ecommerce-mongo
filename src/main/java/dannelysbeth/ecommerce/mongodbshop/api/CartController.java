@@ -5,6 +5,7 @@ import dannelysbeth.ecommerce.mongodbshop.mapper.definition.CartMapper;
 import dannelysbeth.ecommerce.mongodbshop.model.Cart;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.ProductItemFullInfo;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.response.CartResponse;
+import dannelysbeth.ecommerce.mongodbshop.model.DTO.response.GlobalResponse;
 import dannelysbeth.ecommerce.mongodbshop.model.Item;
 import dannelysbeth.ecommerce.mongodbshop.model.ProductItem;
 import dannelysbeth.ecommerce.mongodbshop.model.User;
@@ -15,6 +16,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Collections;
+import java.util.Set;
 
 @CrossOrigin
 @RestController
@@ -30,9 +34,10 @@ public class CartController {
 
     @PreAuthorize("hasAnyAuthority('ADMIN_ROLE', 'USER_ROLE')")
     @PostMapping("/addItem/{id}")
-    public ResponseEntity<String> addItemToCart(@PathVariable String id) {
+    public ResponseEntity<GlobalResponse> addItemToCart(@PathVariable String id) {
         ProductItem productItem = productService.getProductItemById(id);
         User loggedUser = userService.getLoggedUser();
+
         Cart myCart = cartService.getCartByUser(loggedUser);
 
         ProductItemFullInfo itemFullInfo = productService.getFullProductItemInfo(id);
@@ -41,18 +46,27 @@ public class CartController {
 
         this.cartService.addItemToCart(myCart, item);
         return ResponseEntity.ok()
-                .body("Item was added to cart");
+                .body(GlobalResponse.builder()
+                        .responseTime(cartService.getRepositoryResponseTime()+"ms")
+                        .entries(Collections.singleton("Item was added to cart"))
+                                .build()
+                        );
     }
 
     @PreAuthorize("hasAnyAuthority('ADMIN_ROLE', 'USER_ROLE')")
     @GetMapping()
-    public ResponseEntity<CartResponse> getMyCart() {
+    public ResponseEntity<GlobalResponse> getMyCart() {
         User loggedUser = userService.getLoggedUser();
         Cart myCart = cartService.getCartByUser(loggedUser);
 
         CartResponse cartResponse = cartMapper.transformToCartResponse(myCart);
         return ResponseEntity.ok()
-                .body(cartResponse);
+                .body(GlobalResponse.builder()
+                        .responseTime(cartService.getRepositoryResponseTime()+"ms")
+                        .count(cartResponse.getItems().size())
+                        .entries((Set<Object>) cartResponse)
+                        .build()
+                       );
     }
 
 }
