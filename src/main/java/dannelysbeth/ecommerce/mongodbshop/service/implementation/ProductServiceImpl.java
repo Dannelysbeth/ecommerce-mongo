@@ -118,4 +118,9 @@ public class ProductServiceImpl implements ProductService {
         this.watch.stop();
     }
 
+    @Override
+    public void deleteAll() {
+        this.repository.deleteAll();
+    }
+
 }

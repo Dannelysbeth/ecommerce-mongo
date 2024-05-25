@@ -24,4 +24,6 @@ public interface ProductService {
 
     void decreaseProductItems(Order order);
 
+    void deleteAll();
+
 }
