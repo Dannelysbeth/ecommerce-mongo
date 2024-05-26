@@ -45,7 +45,7 @@ services:
     links:
       - mongo
     ports:
-      - "8080:8080"
+      - "9000:9000"
     expose:
       - 8080
     volumes:

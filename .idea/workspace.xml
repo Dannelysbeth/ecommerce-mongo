@@ -9,12 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be2c35e3-2f67-4f4a-b6a9-f25705051fa2" name="Changes" comment="added cart response time">
+    <list default="true" id="be2c35e3-2f67-4f4a-b6a9-f25705051fa2" name="Changes" comment="changed required min">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/api/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/api/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/definition/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/definition/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,35 +65,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/my_stuff/studia/magisterka/ProjektMagisterski/backend/mongodb-shop/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/response",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.12806372",
-    "project.structure.side.proportion": "0.07037298",
-    "settings.editor.selected.configurable": "configurable.group.appearance",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/my_stuff/studia/magisterka/ProjektMagisterski/backend/mongodb-shop/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/response&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.12806372&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.07037298&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mongo"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mongo&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -119,22 +116,7 @@
       <recent name="dannelysbeth.ecommerce.mongodbshop.repository" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.MongodbShopApplication">
-    <configuration name="MongodbShopApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="mongodb-shop" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dannelysbeth.ecommerce.mongodbshop.api.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="dannelysbeth.ecommerce.mongodbshop" />
-      <option name="MAIN_CLASS_NAME" value="dannelysbeth.ecommerce.mongodbshop.MongodbShopApplicationTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Docker.docker-compose.yaml: Compose Deployment">
     <configuration name="mongodb-shop.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/mongodb-shop.jar" />
       <method v="2" />
@@ -174,6 +156,19 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="docker-compose.yaml.mongo-express: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="mongo-express" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yaml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="docker-compose.yaml.web: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -190,10 +185,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yaml.web: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yaml.mongo-express: Compose Deployment" />
         <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Docker.docker-compose.yaml.web: Compose Deployment" />
         <item itemvalue="JAR Application.mongodb-shop.jar" />
-        <item itemvalue="JUnit.MongodbShopApplicationTests" />
       </list>
     </recent_temporary>
   </component>
@@ -218,6 +213,7 @@
       <workItem from="1716008719864" duration="593000" />
       <workItem from="1716220112828" duration="1142000" />
       <workItem from="1716234250882" duration="4502000" />
+      <workItem from="1716706941524" duration="1668000" />
     </task>
     <task id="LOCAL-00001" summary="updated application properties">
       <option name="closed" value="true" />
@@ -419,7 +415,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716496311219</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="changed required min">
+      <option name="closed" value="true" />
+      <created>1716670551060</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1716670551060</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,7 +441,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="working on security v1" />
     <MESSAGE value="working on security v2" />
     <MESSAGE value="completed User functionality for mongoDB database" />
     <MESSAGE value="working on MongoDB schema" />
@@ -462,7 +465,8 @@
     <MESSAGE value="added counting time from repository" />
     <MESSAGE value="fixed all filters" />
     <MESSAGE value="added cart response time" />
-    <option name="LAST_COMMIT_MESSAGE" value="added cart response time" />
+    <MESSAGE value="changed required min" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed required min" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
