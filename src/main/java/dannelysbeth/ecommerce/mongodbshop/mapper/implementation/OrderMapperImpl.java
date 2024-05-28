@@ -1,9 +1,9 @@
 package dannelysbeth.ecommerce.mongodbshop.mapper.implementation;
 
 import dannelysbeth.ecommerce.mongodbshop.mapper.definition.OrderMapper;
-import dannelysbeth.ecommerce.mongodbshop.model.*;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.AddressDto;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.response.OrderResponse;
+import dannelysbeth.ecommerce.mongodbshop.model.*;
 import dannelysbeth.ecommerce.mongodbshop.model.enums.OrderStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -40,7 +40,7 @@ public class OrderMapperImpl implements OrderMapper {
 
     @Override
     public Set<OrderResponse> transformToOrderResponse(Set<Order> orders) {
-        return orders.stream().map(order->OrderResponse
+        return orders.stream().map(order -> OrderResponse
                 .builder()
                 .shippingAddress(order.getShippingAddress())
                 .username(order.getUser().getUsername())
@@ -59,7 +59,7 @@ public class OrderMapperImpl implements OrderMapper {
         return item;
     }
 
-    private double countTotalPrice(Set<Item> orderItems, ShippingMethod  shippingMethod) {
+    private double countTotalPrice(Set<Item> orderItems, ShippingMethod shippingMethod) {
         double sum = 0;
         if (orderItems != null) {
             for (Item orderItem : orderItems) {

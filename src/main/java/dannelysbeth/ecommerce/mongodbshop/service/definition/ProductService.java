@@ -14,6 +14,7 @@ public interface ProductService {
     double getRepositoryResponseTime();
 
     Set<Product> getProducts(Double priceStartsAt, Double priceEndsAt, Long quantity, List<String> category, List<String> color, List<String> size);
+
     void importFromFile(MultipartFile file);
 
     void saveMany(Set<Product> products);

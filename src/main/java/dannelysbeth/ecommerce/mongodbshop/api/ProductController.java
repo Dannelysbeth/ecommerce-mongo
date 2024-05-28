@@ -32,7 +32,7 @@ public class ProductController {
         return ResponseEntity.ok()
                 .body(GlobalResponse.builder()
                         .entries(new HashSet<>(Collections.singleton("Products were imported successfully")))
-                        .responseTime(productService.getRepositoryResponseTime()+"ms")
+                        .responseTime(productService.getRepositoryResponseTime() + "ms")
                         .build());
     }
 
@@ -44,7 +44,7 @@ public class ProductController {
         return ResponseEntity.ok()
                 .body(GlobalResponse.builder()
                         .entries(new HashSet<>(Collections.singleton("Products were imported successfully")))
-                        .responseTime(productService.getRepositoryResponseTime()+"ms")
+                        .responseTime(productService.getRepositoryResponseTime() + "ms")
                         .build());
     }
 
@@ -70,9 +70,8 @@ public class ProductController {
                 .body(GlobalResponse.builder()
                         .count(responses.size())
                         .responseTime(productService.getRepositoryResponseTime() + "ms")
-                        .entries( Collections.singleton(responses))
+                        .entries(Collections.singleton(responses))
                         .build());
-
 
 
     }

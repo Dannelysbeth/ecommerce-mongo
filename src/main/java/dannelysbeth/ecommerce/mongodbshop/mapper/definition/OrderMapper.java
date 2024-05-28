@@ -1,8 +1,8 @@
 package dannelysbeth.ecommerce.mongodbshop.mapper.definition;
 
-import dannelysbeth.ecommerce.mongodbshop.model.*;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.AddressDto;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.response.OrderResponse;
+import dannelysbeth.ecommerce.mongodbshop.model.*;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 

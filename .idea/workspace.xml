@@ -9,9 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be2c35e3-2f67-4f4a-b6a9-f25705051fa2" name="Changes" comment="changed required min">
+    <list default="true" id="be2c35e3-2f67-4f4a-b6a9-f25705051fa2" name="Changes" comment="fixed docker containers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +212,7 @@
       <workItem from="1716008719864" duration="593000" />
       <workItem from="1716220112828" duration="1142000" />
       <workItem from="1716234250882" duration="4502000" />
-      <workItem from="1716706941524" duration="1668000" />
+      <workItem from="1716706941524" duration="8430000" />
     </task>
     <task id="LOCAL-00001" summary="updated application properties">
       <option name="closed" value="true" />
@@ -423,7 +422,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716670551060</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="fixed docker containers">
+      <option name="closed" value="true" />
+      <created>1716712136489</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1716712136489</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -441,7 +448,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="working on security v2" />
     <MESSAGE value="completed User functionality for mongoDB database" />
     <MESSAGE value="working on MongoDB schema" />
     <MESSAGE value="updated Dockerfile" />
@@ -466,7 +472,8 @@
     <MESSAGE value="fixed all filters" />
     <MESSAGE value="added cart response time" />
     <MESSAGE value="changed required min" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed required min" />
+    <MESSAGE value="fixed docker containers" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed docker containers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

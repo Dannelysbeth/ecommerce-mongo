@@ -7,7 +7,6 @@ import dannelysbeth.ecommerce.mongodbshop.model.DTO.ProductItemFullInfo;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.response.CartResponse;
 import dannelysbeth.ecommerce.mongodbshop.model.DTO.response.GlobalResponse;
 import dannelysbeth.ecommerce.mongodbshop.model.Item;
-import dannelysbeth.ecommerce.mongodbshop.model.ProductItem;
 import dannelysbeth.ecommerce.mongodbshop.model.User;
 import dannelysbeth.ecommerce.mongodbshop.service.definition.CartService;
 import dannelysbeth.ecommerce.mongodbshop.service.definition.ProductService;
@@ -35,7 +34,6 @@ public class CartController {
     @PreAuthorize("hasAnyAuthority('ADMIN_ROLE', 'USER_ROLE')")
     @PostMapping("/addItem/{id}")
     public ResponseEntity<GlobalResponse> addItemToCart(@PathVariable String id) {
-        ProductItem productItem = productService.getProductItemById(id);
         User loggedUser = userService.getLoggedUser();
 
         Cart myCart = cartService.getCartByUser(loggedUser);
@@ -47,10 +45,10 @@ public class CartController {
         this.cartService.addItemToCart(myCart, item);
         return ResponseEntity.ok()
                 .body(GlobalResponse.builder()
-                        .responseTime(cartService.getRepositoryResponseTime()+"ms")
+                        .responseTime(cartService.getRepositoryResponseTime() + "ms")
                         .entries(Collections.singleton("Item was added to cart"))
-                                .build()
-                        );
+                        .build()
+                );
     }
 
     @PreAuthorize("hasAnyAuthority('ADMIN_ROLE', 'USER_ROLE')")
@@ -62,11 +60,11 @@ public class CartController {
         CartResponse cartResponse = cartMapper.transformToCartResponse(myCart);
         return ResponseEntity.ok()
                 .body(GlobalResponse.builder()
-                        .responseTime(cartService.getRepositoryResponseTime()+"ms")
+                        .responseTime(cartService.getRepositoryResponseTime() + "ms")
                         .count(cartResponse.getItems().size())
                         .entries((Set<Object>) cartResponse)
                         .build()
-                       );
+                );
     }
 
 }
