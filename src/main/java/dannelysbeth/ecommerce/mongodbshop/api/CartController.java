@@ -17,7 +17,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
-import java.util.Set;
 
 @CrossOrigin
 @RestController
@@ -43,28 +42,17 @@ public class CartController {
 
 
         this.cartService.addItemToCart(myCart, item);
-        return ResponseEntity.ok()
-                .body(GlobalResponse.builder()
-                        .responseTime(cartService.getRepositoryResponseTime() + "ms")
-                        .entries(Collections.singleton("Item was added to cart"))
-                        .build()
-                );
+        return ResponseEntity.ok().body(GlobalResponse.builder().responseTime(cartService.getRepositoryResponseTime() + "ms").entries(Collections.singleton("Item was added to cart")).build());
     }
 
     @PreAuthorize("hasAnyAuthority('ADMIN_ROLE', 'USER_ROLE')")
     @GetMapping()
-    public ResponseEntity<GlobalResponse> getMyCart() {
+    public ResponseEntity<CartResponse> getMyCart() {
         User loggedUser = userService.getLoggedUser();
         Cart myCart = cartService.getCartByUser(loggedUser);
 
         CartResponse cartResponse = cartMapper.transformToCartResponse(myCart);
-        return ResponseEntity.ok()
-                .body(GlobalResponse.builder()
-                        .responseTime(cartService.getRepositoryResponseTime() + "ms")
-                        .count(cartResponse.getItems().size())
-                        .entries((Set<Object>) cartResponse)
-                        .build()
-                );
+        return ResponseEntity.ok().body(cartResponse);
     }
 
 }

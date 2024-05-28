@@ -15,7 +15,7 @@ public class CartServiceImpl implements CartService {
 
     private final CartRepository repository;
 
-    private final StopWatch watch = new StopWatch();
+    private StopWatch watch;
 
     @Override
     public double getRepositoryResponseTime() {
@@ -24,6 +24,7 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public void saveCart(Cart cart) {
+        watch = new StopWatch();
         watch.start();
         repository.save(cart);
         watch.stop();
@@ -31,6 +32,7 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public Cart getCartByUser(User user) {
+        watch = new StopWatch();
         watch.start();
         Cart cart = repository.getByUser(user);
         if (cart == null)
@@ -44,6 +46,7 @@ public class CartServiceImpl implements CartService {
     @Override
     public void addItemToCart(Cart cart, Item item) {
         cart.addCartItem(item);
+        watch = new StopWatch();
         watch.start();
         repository.save(cart);
         watch.stop();
@@ -53,6 +56,7 @@ public class CartServiceImpl implements CartService {
     public void emptyCart(Cart cart) {
         cart.setItems(null);
         cart.setTotal(0);
+        watch = new StopWatch();
         watch.start();
         repository.save(cart);
         watch.stop();
