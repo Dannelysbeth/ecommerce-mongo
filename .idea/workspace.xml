@@ -9,11 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be2c35e3-2f67-4f4a-b6a9-f25705051fa2" name="Changes" comment="reformatted code">
+    <list default="true" id="be2c35e3-2f67-4f4a-b6a9-f25705051fa2" name="Changes" comment="database time count">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/api/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/api/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/CartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/CartServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/service/implementation/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +213,8 @@
       <workItem from="1716008719864" duration="593000" />
       <workItem from="1716220112828" duration="1142000" />
       <workItem from="1716234250882" duration="4502000" />
-      <workItem from="1716706941524" duration="13361000" />
+      <workItem from="1716706941524" duration="15037000" />
+      <workItem from="1717273608974" duration="666000" />
     </task>
     <task id="LOCAL-00001" summary="updated application properties">
       <option name="closed" value="true" />
@@ -441,7 +440,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716907301162</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="database time count">
+      <option name="closed" value="true" />
+      <created>1716933649045</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1716933649045</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -459,7 +466,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="working on MongoDB schema" />
     <MESSAGE value="updated Dockerfile" />
     <MESSAGE value="working login/register endpoint" />
     <MESSAGE value="fixed docker-import" />
@@ -484,7 +490,8 @@
     <MESSAGE value="changed required min" />
     <MESSAGE value="fixed docker containers" />
     <MESSAGE value="reformatted code" />
-    <option name="LAST_COMMIT_MESSAGE" value="reformatted code" />
+    <MESSAGE value="database time count" />
+    <option name="LAST_COMMIT_MESSAGE" value="database time count" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
