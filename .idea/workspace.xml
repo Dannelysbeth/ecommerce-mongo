@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be2c35e3-2f67-4f4a-b6a9-f25705051fa2" name="Changes" comment="clean up code">
+    <list default="true" id="be2c35e3-2f67-4f4a-b6a9-f25705051fa2" name="Changes" comment="app properties">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
@@ -215,7 +215,8 @@
       <workItem from="1716234250882" duration="4502000" />
       <workItem from="1716706941524" duration="15037000" />
       <workItem from="1717273608974" duration="679000" />
-      <workItem from="1717537451267" duration="442000" />
+      <workItem from="1717537451267" duration="1304000" />
+      <workItem from="1717599730882" duration="1324000" />
     </task>
     <task id="LOCAL-00001" summary="updated application properties">
       <option name="closed" value="true" />
@@ -457,7 +458,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717430370374</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="app properties">
+      <option name="closed" value="true" />
+      <created>1717537919847</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1717537919847</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,7 +484,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated Dockerfile" />
     <MESSAGE value="working login/register endpoint" />
     <MESSAGE value="fixed docker-import" />
     <MESSAGE value="working products import" />
@@ -500,7 +508,8 @@
     <MESSAGE value="reformatted code" />
     <MESSAGE value="database time count" />
     <MESSAGE value="clean up code" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean up code" />
+    <MESSAGE value="app properties" />
+    <option name="LAST_COMMIT_MESSAGE" value="app properties" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
