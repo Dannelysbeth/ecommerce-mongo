@@ -42,7 +42,11 @@ public class CartController {
 
 
         this.cartService.addItemToCart(myCart, item);
-        return ResponseEntity.ok().body(GlobalResponse.builder().responseTime(cartService.getRepositoryResponseTime() + "ms").entries(Collections.singleton("Item was added to cart")).build());
+        return ResponseEntity.ok()
+                .body(GlobalResponse.builder()
+                        .responseTime(cartService.getRepositoryResponseTime() + "ms")
+                        .entries(Collections.singleton("Item was added to cart"))
+                        .build());
     }
 
     @PreAuthorize("hasAnyAuthority('ADMIN_ROLE', 'USER_ROLE')")
