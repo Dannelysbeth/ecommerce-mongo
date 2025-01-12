@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be2c35e3-2f67-4f4a-b6a9-f25705051fa2" name="Changes" comment="app properties update 2">
+    <list default="true" id="be2c35e3-2f67-4f4a-b6a9-f25705051fa2" name="Changes" comment="app properties update 3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -218,7 +218,7 @@
       <workItem from="1717599730882" duration="1951000" />
       <workItem from="1717934799885" duration="1736000" />
       <workItem from="1717948112899" duration="4580000" />
-      <workItem from="1718232694947" duration="17000" />
+      <workItem from="1718232694947" duration="365000" />
     </task>
     <task id="LOCAL-00001" summary="updated application properties">
       <option name="closed" value="true" />
@@ -476,7 +476,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717620202461</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="app properties update 3">
+      <option name="closed" value="true" />
+      <created>1718232740406</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1718232740406</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -494,7 +502,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed docker-import" />
     <MESSAGE value="working products import" />
     <MESSAGE value="changed schema" />
     <MESSAGE value="importing products from file" />
@@ -519,7 +526,8 @@
     <MESSAGE value="clean up code" />
     <MESSAGE value="app properties" />
     <MESSAGE value="app properties update 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="app properties update 2" />
+    <MESSAGE value="app properties update 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="app properties update 3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -621,7 +629,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/api/CartController.java</url>
-          <line>50</line>
+          <line>54</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -671,7 +679,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/dannelysbeth/ecommerce/mongodbshop/api/CartController.java</url>
-          <line>53</line>
+          <line>57</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
       </breakpoints>
