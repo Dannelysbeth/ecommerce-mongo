@@ -1,93 +1,171 @@
-# Ecommerce MongoDB Shop
+# 🛒 Ecommerce MongoDB Shop - Testing and Exploring MongoDB
 
-This repository contains the source code for the **Ecommerce MongoDB Shop** project. It is a backend application built with **Java**, **Spring Framework**, **MongoDB**, and **Lombok**, designed to manage ecommerce functionalities like user addresses, countries, and related data, with clean architecture and an efficient data persistence layer.
+This is a simple yet functional **Ecommerce Internet Shop** backend designed to test and demonstrate the capabilities of **MongoDB** in handling ecommerce functionalities. This project is focused on utilizing MongoDB document-based NoSQL features effectively and provides a small, clean implementation of essential ecommerce backend operations.
 
 ---
 
 ## 📋 Features
 
-- **Spring Boot Backend**: A robust and scalable backend built with the Spring Framework.
-- **MongoDB Integration**: A NoSQL database for lightweight, scalable storage of data.
-- **Lombok for Cleaner Code**: Simplifies model creation using concise annotations.
-- **Address Management**: Support for saving, retrieving, and marking addresses as default.
-
----
-
-## 📂 Project Structure
-
-The project follows a modular and clean architecture. Below is an overview of the key components:
-
-- **`model`**: Contains the data models, such as `Address` and `Country`. These models are annotated for MongoDB and leverage Lombok for eliminating boilerplate code.
-- **`repository`**: Contains MongoDB repositories for handling data persistence.
-- **`service`**: The service layer encapsulates business logic and ensures reusability.
-- **`controller`**: RESTful APIs to expose the underlying functionalities to external systems or frontend apps.
-- **`configuration`**: Project configuration files, including database, application settings, etc.
-
-### Example: Address Model
-
-The `Address` model represents a user's stored address. It includes fields for country, postal code, city, and more. For example:
-
-- **`isDefault`**: A `boolean` field that determines whether this address is the default address for the user.
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-Before you start, make sure you have the following installed:
-
-- **Java 21 SDK**
-- **MongoDB** (for the database)
-- **Maven** (build tool)
-
-### Installation and Setup
-
-1. Clone the repository:
-
-   ```bash
-   git clone <repository-url>
-   cd ecommerce-mongodb-shop
-   ```
-
-2. Configure the MongoDB connection in the `application.yml` or `application.properties` file.
-
-3. Build the project:
-
-   ```bash
-   mvn clean install
-   ```
-
-4. Run the application:
-
-   ```bash
-   mvn spring-boot:run
-   ```
-
-5. The backend will start on `http://localhost:8080`.
-
----
-
-## 📖 API Endpoints
-
-This application provides RESTful endpoints to perform operations related to addresses, countries, and other ecommerce data.
-
-### Address Operation Examples:
-- **Add an Address**
-- **Retrieve a User's Addresses**
-- **Set an Address as Default**
-
-More API endpoint details will follow as the project evolves.
+- **MongoDB Integration**: A fully persistent database using MongoDB for high scalability, flexibility, and powerful querying.
+- **Basic Ecommerce Backend**: Includes foundational ecommerce operations like managing addresses and countries.
+- **Lombok for Simplicity**: Streamlines Java code by reducing boilerplate with concise model annotations.
+- **Spring Boot for APIs**: Provides a production-ready environment with RESTful APIs to interact with the database.
+- **Testing MongoDB Capabilities**: Demonstrates the strengths of MongoDB's NoSQL model in handling ecommerce-like data.
 
 ---
 
 ## 🛠️ Technologies Used
 
-- **Backend**: Spring Boot, Java 21
-- **Database**: MongoDB
-- **Utility Library**: Lombok
+- **Backend**: Java 21, Spring Boot, Spring Data MongoDB
+- **Database**: MongoDB (NoSQL)
+- **Utility Library**: Lombok for reducing boilerplate code
 - **Build Tool**: Maven
+- **Testing**: JUnit for unit testing
 
+---
+
+## 📋 Data Model
+
+The project uses a simple yet comprehensive data model to represent common entities in an ecommerce system: `Address` and `Country`. Below are the key details:
+
+### 🌍 `Country` Model
+
+Represents a country in the ecommerce system.
+
+```java
+@Builder
+@Data
+public class Country {
+    private long id;
+    private String name;
+    private String code; // ISO country code
+}
+```
+
+| **Field**        | **Type** | **Description**                  |
+|-------------------|----------|----------------------------------|
+| `id`             | `long`   | Unique identifier for the country. |
+| `name`           | `String` | Name of the country (e.g., "United States"). |
+| `code`           | `String` | ISO code for the country.       |
+
+---
+
+### 🏠 `Address` Model
+
+Stores address details of users in the system.
+
+```java
+@Builder
+@Data
+public class Address {
+    private long id;
+    @DBRef
+    private Country country;
+    private int unitNumber;
+    private int streetNumber;
+    private String addressLine1;
+    private String addressLine2;
+    private String city;
+    private String postalCode;
+    private boolean isDefault;
+}
+```
+
+| **Field**         | **Type**     | **Description**                                      |
+|--------------------|--------------|----------------------------------------------------|
+| `id`              | `long`       | Unique identifier for the address.                |
+| `country`         | `Country`    | Linked `Country` object stored with MongoDB's DBRef for relations. |
+| `unitNumber`      | `int`        | Unit or apartment number in the address.          |
+| `streetNumber`    | `int`        | Street number.                                    |
+| `addressLine1`    | `String`     | Primary address field (e.g., Street name).        |
+| `addressLine2`    | `String`     | Secondary address field (optional).              |
+| `city`            | `String`     | City name.                                        |
+| `postalCode`      | `String`     | Postal/ZIP code for the address.                  |
+| `isDefault`       | `boolean`    | Flag indicating if the address is the user's default one. |
+
+---
+
+## 🚀 Getting Started
+
+### 📋 Prerequisites
+
+Before running this project, ensure the following tools are installed:
+
+1. **Java 21 SDK**
+2. **MongoDB** (working instance)
+3. **Maven** (build tool)
+
+---
+
+### 📦 Installation and Setup
+
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   cd ecommerce-mongodb-shop
+   ```
+
+2. **Set up MongoDB**:
+   - Ensure MongoDB is running locally or update your connection string in the `application.properties` file accordingly.
+
+3. **Build the project**:
+   ```bash
+   mvn clean install
+   ```
+
+4. **Run the project**:
+   ```bash
+   mvn spring-boot:run
+   ```
+
+5. The application will be available at `http://localhost:8080`.
+
+---
+
+### 📖 Usage
+
+#### Available Endpoints
+
+1. **Address Management**:
+   - Add an address.
+   - Retrieve all addresses.
+   - Set an address as default.
+
+2. **Country Management**:
+   - Add a new country.
+   - Retrieve country lists.
+   - Link countries to addresses.
+
+These endpoints can be tested using tools such as **Postman** or **cURL**.
+
+---
+
+## 📚 Testing MongoDB Capabilities
+
+The purpose of this project is to explore key MongoDB features and how they can be effectively applied in a simple ecommerce system. You can experiment with the following MongoDB features:
+
+1. **Document-based Storage**:
+   - Easily handle nested and complex data structures, like `Address` containing a referenced `Country`.
+
+2. **DBRef Relationships**:
+   - Leveraging MongoDB's `@DBRef` annotation to create relations between collections (e.g., Address and Country).
+
+3. **Query Capabilities**:
+   - Perform dynamic queries to filter data as needed using Spring Data MongoDB.
+
+4. **Prototyping**:
+   - Quickly modify schema definitions for testing new features without downtime, thanks to MongoDB's flexible schema model.
+
+---
+
+## 👥 Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository.
+2. Create a feature branch.
+3. Commit your changes following best practices.
+4. Submit a pull request.
 
 ---
 
@@ -99,8 +177,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## ❤️ Acknowledgements
 
-Thank you for exploring this project! If you have ideas, find bugs, or want to contribute, feel free to open an issue or submit a pull request.
+Thank you for exploring this project! This project demonstrates how easy it is to integrate MongoDB with Java backend technology like Spring Boot. If you have any suggestions or find bugs, feel free to open an issue or submit a pull request.
 
----
-
-Feel free to share feedback and connect! 🎉 Happy coding!
+Happy coding! 🎉

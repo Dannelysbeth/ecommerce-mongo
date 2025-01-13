@@ -9,8 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be2c35e3-2f67-4f4a-b6a9-f25705051fa2" name="Changes" comment="app properties update 3">
+    <list default="true" id="be2c35e3-2f67-4f4a-b6a9-f25705051fa2" name="Changes" comment="completed README file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +26,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="master" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -34,21 +38,19 @@
     &quot;assignee&quot;: &quot;Dannelysbeth&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="5e780d54-09f1-4b3e-a515-224c99eded6a" />
-        <option name="url" value="https://github.com/Dannelysbeth/ecommerce-mongo.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Dannelysbeth/ecommerce-mongo.git&quot;,
+    &quot;accountId&quot;: &quot;5e780d54-09f1-4b3e-a515-224c99eded6a&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -72,10 +74,12 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/my_stuff/studia/magisterka/ProjektMagisterski/backend/mongodb-shop/src/main/java/dannelysbeth/ecommerce/mongodbshop/model/DTO/response&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/my_stuff/studia/magisterka/ProjektMagisterski/backend/mongodb-shop&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -191,6 +195,14 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -219,6 +231,7 @@
       <workItem from="1717934799885" duration="1736000" />
       <workItem from="1717948112899" duration="4580000" />
       <workItem from="1718232694947" duration="365000" />
+      <workItem from="1736717792788" duration="1313000" />
     </task>
     <task id="LOCAL-00001" summary="updated application properties">
       <option name="closed" value="true" />
@@ -484,7 +497,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718232740406</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="completed README file">
+      <option name="closed" value="true" />
+      <created>1736718028129</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1736718028129</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -502,7 +523,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="working products import" />
     <MESSAGE value="changed schema" />
     <MESSAGE value="importing products from file" />
     <MESSAGE value="added products from body instead of file" />
@@ -527,7 +547,8 @@
     <MESSAGE value="app properties" />
     <MESSAGE value="app properties update 2" />
     <MESSAGE value="app properties update 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="app properties update 3" />
+    <MESSAGE value="completed README file" />
+    <option name="LAST_COMMIT_MESSAGE" value="completed README file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
